@@ -1,19 +1,18 @@
 import { atom } from 'recoil';
-import Contact from '@/types/contact';
-import Company from '@/types/company';
-import Template from '@/types/template';
 
-export const contactsState = atom<Contact[]>({
+// data object states:
+export const contactsState = atom({
   key: 'contactsState',
-  default: [],
+  default: null,
 });
 
-export const companiesState = atom<Company[]>({
+export const companiesState = atom({
   key: 'companiesState',
-  default: [],
+  default: null,
 });
 
-export const templatesState = atom<Template[]>({
+export const templatesState = atom({
   key: 'templatesState',
-  default: [],
+  default: null,
 });
+
