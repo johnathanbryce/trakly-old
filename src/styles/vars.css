@@ -1,0 +1,49 @@
+:root {
+    /* primary colors / default / misc */
+    --primary-color: '';
+    --primary-color-light: '';
+    --secondary-color: '';
+    --secondary-color-light: '';
+    --default-color:'';
+    --inactive-color: '';
+    --inactive-color-light: '';
+
+    /* backgrounds */
+    --background-primary: ''; 
+    --background-secondary:	'';
+    --background-secondary-light: '';
+    --background-tertiary:'';
+    --card-bg-primary:	'';
+
+    /* fonts */
+    --font-primary:	'';
+    --font-secondary:'';
+    --font-headers:	'';
+
+    /* buttons */
+    --button-primary-text:'';
+    --button-secondary-text:'';
+    --button-hover-bg: '';
+    --button-hover-bg-secondary: '';
+    --button-padding: '';
+
+    /* borders */
+    --border-radius: '';
+    --border-color: '';
+
+    /* error/success */
+    --error-color: '';
+    --success-color: '';
+
+    /* box-shadow */
+    --box-shadow:0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* inputs */
+    --input-bg:	'';
+    --input-text: '';
+    --input-padding: '';
+    --input-focus-transition: 0.2s ease-in-out;
+    
+    /* hover */
+    --hover-transition: 0.3s ease-in-out;
+}
