@@ -28,7 +28,7 @@
     --button-padding: '';
 
     /* borders */
-    --border-radius: '';
+    --border-radius: 0.375rem;
     --border-color: '';
 
     /* error/success */

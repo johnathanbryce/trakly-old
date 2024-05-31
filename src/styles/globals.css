@@ -1,5 +1,31 @@
 @import './vars.css';
 
+/* CLERK AUTH FORMS */
+/* form size */
+.cl-internal-qk5yrq{
+    width: 40rem;
+}
+
+/* socials btns container */
+.cl-internal-18vpdak {
+    gap: 2rem;
+}
+
+/* socials btn img containers */
+.cl-internal-4iab0p {
+  height: 4rem;
+}
+/* socials btn imgs */
+.cl-internal-2gzuzc  {
+  width: 2rem;
+}
+/* email/password inputs */
+.cl-internal-1a1otnq, .cl-formFieldInput__password{
+  max-height: 4rem;
+}
+
+/* END OF CLERK AUTH FORMS */
+
 html {
     font-size: 62.5%; /* 100% would be 16 px so now, 1 rem = 10px */
     line-height: 1.15;

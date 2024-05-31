@@ -12,7 +12,7 @@ export default clerkMiddleware((auth, req) => {
 
     // Redirect logged-in users from the root route to /dashboard
     if (req.nextUrl.pathname === '/' && auth().userId) {
-      return NextResponse.redirect(new URL('/dashboard', req.url));
+        return NextResponse.redirect(new URL('/dashboard', req.url));
     }
   
 });
