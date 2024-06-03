@@ -63,43 +63,44 @@ input[type="number"] {
 
 /* Typography */
 p {
-    margin: 0;
-    font-weight: 500;
+  margin: 0;
+  font-weight: 500;
+  color: var(--font-primary);
+  font-size: clamp(1.4rem, 1.2rem + 1vw, 1.6rem);
 }
 
 li {
-   
-    
+  color: var(--font-primary);
+  font-size: clamp(1.4rem, 1.2rem + 1vw, 1.6rem);
 }
-  
-h2, h3, h4, h5, h6{
-    
-}
-
 
 h1 {
-  
+  color: var(--font-primary);
   font-weight: bold;
-
+  font-size: clamp(3.6rem, 2.6rem + 2vw, 4.8rem);
 }
 
-
 h2 {
-
+  color: var(--font-primary);
+  font-size: clamp(3.0rem, 2.2rem + 1.5vw, 3.6rem);
 }
 
 h3 {
-
+  color: var(--font-primary);
+  font-size: clamp(2.4rem, 1.8rem + 1.2vw, 3.0rem);
 }
 
 h4 {
-  
+  color: var(--font-primary);
+  font-size: clamp(2.0rem, 1.6rem + 1vw, 2.4rem);
 }
 
 h5 {
-
+  color: var(--font-primary);
+  font-size: clamp(1.8rem, 1.4rem + 0.8vw, 2.0rem);
 }
 
 h6 {
-  
+  color: var(--font-primary);
+  font-size: clamp(1.6rem, 1.2rem + 0.6vw, 1.8rem);
 }
