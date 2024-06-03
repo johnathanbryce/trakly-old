@@ -38,8 +38,10 @@
     /* gaps */
     --content-gap: 1.75rem;
 
-    /* layout padding */
+    /* padding */
     --layout-padding: 0 5rem;
+    --layout-padding-mobile: 0 2rem;
+    --card-padding: 2rem;
 
     /* inputs */
     --input-bg:	'';

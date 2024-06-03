@@ -1,10 +1,10 @@
-import styles from './contacts.module.css'
+import styles from './templates.module.css'
 // Components
 import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardContainerCard/DashboardContainerCard'
 
-export default function Contacts() {
+export default function Templates() {
   return (
-      <DashboardContainerCard title='Contacts'>
+      <DashboardContainerCard title='Templates'>
         <div> stuff </div>
       </DashboardContainerCard>
   )

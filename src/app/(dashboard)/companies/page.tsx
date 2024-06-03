@@ -1,9 +1,11 @@
 import styles from './companies.module.css'
+// Components
+import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardContainerCard/DashboardContainerCard'
 
 export default function Companies() {
   return (
-    <section className={styles.companies}>
-        <h2> Companies </h2>
-    </section>
+    <DashboardContainerCard title='Companies'>
+      <div> stuff </div>
+    </DashboardContainerCard>
   )
 }

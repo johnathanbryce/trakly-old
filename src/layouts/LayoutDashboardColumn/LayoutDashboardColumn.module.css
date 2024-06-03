@@ -1,6 +1,21 @@
+
+.layout_dashboard_column{
+    width: calc(100% - 14.5rem);
+    margin-right: 5rem;
+}
+
 /* Tablets (landscape) / Small Laptops) */
 @media (max-width: 1200px) { 
     .layout_dashboard_column {
+        width: 100%;
+        margin-right: 0;
         padding: var(--layout-padding);
+    }
+}
+
+/* Mobile Devices (landscape) */
+@media (max-width: 775px) { 
+    .layout_dashboard_column { 
+        padding: var(--layout-padding-mobile);
     }
 }

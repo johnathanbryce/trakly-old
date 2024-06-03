@@ -1,8 +1,7 @@
 
-import {useState, useEffect} from 'react'
+import styles from './home.module.css'
 // Components
-import HeaderDashboard from '@/components/Headers/HeaderDashboard/HeaderDashboard';
-import Navigation from '@/components/Dashboard/Navigation/Navigation';
+import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardContainerCard/DashboardContainerCard';
 // Auth
 import { useAuth, useUser } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
@@ -23,10 +22,16 @@ export default async function Dashboard() {
   // Use `user` to render user details or create UI elements
 
   return (
-    <section>
-        <h2> home </h2>
-
-        
+    <section className={styles.dashboard_home}>
+        <DashboardContainerCard title='Recently added contacts'>
+          <div> stuff </div>
+        </DashboardContainerCard>
+        <DashboardContainerCard title='Recently added companies'>
+          <div> stuff </div>
+        </DashboardContainerCard>
+        <DashboardContainerCard title='Message templates'>
+          <div> stuff </div>
+        </DashboardContainerCard>
     </section>
   )
 }

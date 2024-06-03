@@ -9,6 +9,9 @@
     border-bottom: 0.05rem solid var( --default-color);
 }
 
-.log_out_btn{
-    
+/* Mobile Devices (landscape) */
+@media (max-width: 775px) { 
+    .header {
+        padding: var(--layout-padding-mobile);
+    }
 }
