@@ -1,0 +1,53 @@
+.main_nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--content-gap);
+    height: calc(100vh - 7.5rem);
+    width: 14.5rem;
+}
+
+.active   {
+    background-color: var(--accent-color-extra-light);
+}
+
+.nav_item_container.active {
+    background-color: var(--accent-color-extra-light);
+    color: var(--accent-color);
+}
+
+.nav_item_container.active .icon {
+    color: var(--accent-color);
+}
+
+.nav_item_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    color: var(--font-secondary);
+    width: 7.5rem;
+    padding: 1rem;
+}
+
+.icon {
+    size: 10rem;
+}
+
+/* Tablets (landscape) / Small Laptops) */
+@media (max-width: 1200px) { 
+    .main_nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: inherit;
+        width: 100%;
+        z-index: 10;
+        height: inherit;
+        padding: 0.5rem;
+        position: fixed;
+        bottom: 0;
+    }
+}

@@ -1,0 +1,6 @@
+/* Tablets (landscape) / Small Laptops) */
+@media (max-width: 1200px) { 
+    .layout_dashboard_column {
+        padding: var(--layout-padding);
+    }
+}

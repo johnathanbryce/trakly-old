@@ -1,18 +1,20 @@
 :root {
     /* primary colors / default / misc */
-    --accent-color: #2B59C3;
-    --default-color: #F8F1E7;
+    --accent-color: #0E6FFF;
+    --accent-color-light: #80BFFF;
+    --accent-color-extra-light: #F2F8FF;
+    --default-color: #040303;
 
 
     /* backgrounds */
-    --background-primary: #F8F1E7; 
-    --background-secondary:	#F5F5F5;
+    --background-primary: #FAFAFB; 
+    --background-secondary:	#FFFFFF;
     --background-tertiary: '';
-    --card-bg-primary:	#F5F5F5;
+    --card-bg-primary:	#FFFFFF;
 
     /* fonts */
     --font-primary:	#040303;
-    --font-secondary: #8A8A8A;
+    --font-secondary: #4A4A4A;
     --font-headers:	'';
 
     /* buttons */
@@ -32,6 +34,12 @@
 
     /* box-shadow */
     --box-shadow:0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* gaps */
+    --content-gap: 1.75rem;
+
+    /* layout padding */
+    --layout-padding: 0 5rem;
 
     /* inputs */
     --input-bg:	'';

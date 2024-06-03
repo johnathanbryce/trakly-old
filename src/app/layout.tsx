@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Head from 'next/head';
 // Auth
-import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { ClerkProvider } from '@clerk/nextjs'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,14 +26,6 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-{/*         <header>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </header> */}
         <body className={inter.className}>{children}</body>
       </html>
     </ClerkProvider>
