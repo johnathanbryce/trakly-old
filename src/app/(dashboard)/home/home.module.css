@@ -3,3 +3,9 @@
     flex-direction: column;
     gap: var(--content-gap);
 }
+
+.dashboard_home_flex_wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: var(--content-gap);
+}

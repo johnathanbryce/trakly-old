@@ -1,7 +1,8 @@
 
 import styles from './home.module.css'
-// Components
+// Internal Components
 import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardContainerCard/DashboardContainerCard';
+import DashboardHomeRecentContacts from '@/components/Dashboard/DashboardHome/DashboardHomeRecentContacts/DashboardHomeRecentContacts';
 // Auth
 import { useAuth, useUser } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
@@ -24,13 +25,19 @@ export default async function Dashboard() {
   return (
     <section className={styles.dashboard_home}>
         <DashboardContainerCard title='Recently added contacts'>
-          <div> stuff </div>
+          <div className={styles.dashboard_home_flex_wrapper}>
+            <DashboardHomeRecentContacts />
+          </div>
         </DashboardContainerCard>
         <DashboardContainerCard title='Recently added companies'>
-          <div> stuff </div>
+          <div className={styles.dashboard_home_flex_wrapper}>
+
+          </div>
         </DashboardContainerCard>
         <DashboardContainerCard title='Message templates'>
-          <div> stuff </div>
+          <div className={styles.dashboard_home_flex_wrapper}>
+
+          </div>
         </DashboardContainerCard>
     </section>
   )

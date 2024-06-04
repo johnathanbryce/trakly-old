@@ -37,11 +37,13 @@
 
     /* gaps */
     --content-gap: 1.75rem;
+    --content-gap-small: 0.5rem;
 
     /* padding */
     --layout-padding: 0 5rem;
     --layout-padding-mobile: 0 2rem;
     --card-padding: 2rem;
+    --card-padding-small: 1.5rem;
 
     /* inputs */
     --input-bg:	'';

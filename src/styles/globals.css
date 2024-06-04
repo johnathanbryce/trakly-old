@@ -65,13 +65,13 @@ input[type="number"] {
 p {
   margin: 0;
   font-weight: 500;
-  color: var(--font-primary);
-  font-size: clamp(1.4rem, 1.2rem + 1vw, 1.6rem);
+  color: var(--font-secondary);
+  font-size: clamp(1.2rem, 1.2rem + 1vw, 1.45rem);
 }
 
 li {
-  color: var(--font-primary);
-  font-size: clamp(1.4rem, 1.2rem + 1vw, 1.6rem);
+  color: var(--font-secondary);
+  font-size: clamp(1.2rem, 1.2rem + 1vw, 1.45rem);
 }
 
 h1 {

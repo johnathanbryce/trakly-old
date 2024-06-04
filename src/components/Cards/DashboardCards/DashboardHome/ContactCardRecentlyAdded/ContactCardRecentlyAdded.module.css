@@ -1,0 +1,44 @@
+.contact_card_recent{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: var(--content-gap-small);
+    padding: var(--card-padding-small);
+    border-radius: var(--border-radius);
+    border: 0.05rem solid var(--font-secondary);
+    position: relative;
+}
+
+.arrow_icon {
+    cursor: pointer;
+    position: absolute;
+    right: 0.5rem;
+}
+
+.contact {
+    font-size: 1.2rem;
+}
+
+.name, .added_text {
+    color: var(--font-primary);
+    font-weight: 600; 
+}
+
+.card_footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons_container {
+    display: flex;
+    gap: var(--content-gap-small);
+}
+
+.icon_contact {
+    cursor: pointer;
+    transition: var(--hover-transition);
+}
+
+.icon_contact:hover {
+    color: var(--accent-color);
+}
