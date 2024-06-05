@@ -1,0 +1,16 @@
+.copy_button_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--content-gap-small);
+}
+
+.copy_button_container:hover {
+
+    color: var(--accent-color);
+    transition: color var(--hover-transition);
+}
+.copy_text, .icon_success{
+    font-size: 1rem;
+    color: var(--success-color);
+}

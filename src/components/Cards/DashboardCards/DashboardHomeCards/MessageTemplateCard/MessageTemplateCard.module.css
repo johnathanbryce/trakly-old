@@ -1,0 +1,100 @@
+.card_recent{
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-gap);
+    padding: var(--card-padding-small);
+    border-radius: var(--border-radius);
+    border: 0.05rem solid var(--font-secondary);
+    position: relative;
+    flex: 0 0 60%; /* necessary for carousel */
+    min-width: 0; /* necessary for carousel */
+}
+
+.icon_delete {
+    cursor: pointer;
+    position: absolute;
+    right: -0.75rem;
+    top: -0.25rem;
+    opacity: 0; 
+    color: var(--warning-color);
+    background-color: var(--background-secondary);
+    z-index: 10;
+    transition: opacity var(--hover-transition); 
+}
+
+/* Make the icon visible with a smooth transition on hover */
+.card_recent:hover .icon_delete {
+    opacity: 1; 
+}
+
+.name, .added_text {
+    color: var(--font-primary);
+    font-weight: 600; 
+}
+
+.message_container{
+    margin-bottom: 2rem; /* for absolute position of footer container */
+}
+
+.trim_and_copy_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.trim_message_toggle_container{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--hover-transition);
+    
+}
+
+.trim_message_toggle_container:hover .toggle {
+    color: var(--accent-color);
+}
+
+.toggle {
+    cursor: pointer;
+    color: var(--font-secondary-light);
+}
+
+.date_added {
+    font-size: 1.2rem;
+}
+
+.card_footer{
+    display: flex;
+    flex-direction: column;
+    
+    position: absolute;
+    bottom: 0;
+}
+
+/* Mobile Devices (landscape) */
+@media (max-width: 775px) {
+    .card_recent {
+        flex: 0 0 80%; /* necessary for carousel */
+    } 
+
+    .card_footer {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+
+    .message_container{
+        gap: var(--content-gap-small);
+        flex-direction: column;
+    }
+
+}
+
+/* Mobile Devices up to 480px */
+@media (max-width: 480px) {  
+    .card_recent {
+        flex: 0 0 80%; /* necessary for carousel */
+    }
+}

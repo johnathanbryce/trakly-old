@@ -1,0 +1,10 @@
+.embla{
+    overflow: hidden;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+.embla_container{
+    display: flex;
+    gap: 1.5rem;
+}

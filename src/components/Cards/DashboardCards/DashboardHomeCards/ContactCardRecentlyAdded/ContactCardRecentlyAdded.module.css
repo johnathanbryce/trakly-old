@@ -1,0 +1,73 @@
+.card_recent{
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-gap-small);
+    padding: var(--card-padding-small);
+    border-radius: var(--border-radius);
+    border: 0.05rem solid var(--font-secondary);
+    position: relative;
+    flex: 0 0 40%; /* necessary for carousel */
+    min-width: 0; /* necessary for carousel */
+}
+
+.icon_delete {
+    cursor: pointer;
+    position: absolute;
+    right: -0.75rem;
+    top: -0.25rem;
+    opacity: 0; 
+    color: var(--warning-color);
+    background-color: var(--background-secondary);
+    z-index: 10;
+    transition: opacity var(--hover-transition); 
+}
+
+/* Make the icon visible with a smooth transition on hover */
+.card_recent:hover .icon_delete {
+    opacity: 1; 
+}
+
+.contact, .date_added {
+    font-size: 1.2rem;
+}
+
+.name, .added_text {
+    color: var(--font-primary);
+    font-weight: 600; 
+}
+
+.card_footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons_container {
+    display: flex;
+    gap: var(--content-gap-small);
+}
+
+.icon_contact {
+    cursor: pointer;
+    transition: var(--hover-transition);
+}
+
+.icon_contact:hover {
+    color: var(--accent-color);
+}
+
+/* Mobile Devices (landscape) */
+@media (max-width: 775px) { 
+    .card_footer, .header_container{
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: var(--content-gap);
+    }
+}
+
+/* Mobile Devices up to 480px */
+@media (max-width: 480px) {  
+    .card_recent {
+        flex: 0 0 80%; /* necessary for carousel */
+    }
+}

@@ -6,7 +6,12 @@ export default interface Contact {
     phone?: string;
     company?: string;
     position?: string;
-    linkedIn?: string;
+    links?: {
+        website?: string,
+        linkedIn?: string,
+        github?: string,
+        instagram?: string,
+    }
     notes?: string;
     contactMethod?: string;
     lastContactedDate?: Date | string;

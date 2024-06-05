@@ -15,6 +15,7 @@
     /* fonts */
     --font-primary:	#040303;
     --font-secondary: #4A4A4A;
+    --font-secondary-light: rgba(74, 74, 74, 0.5);
     --font-headers:	'';
 
     /* buttons */
@@ -28,8 +29,8 @@
     --border-radius: 0.375rem;
     --border-color: '';
 
-    /* error/success */
-    --error-color: #DA2C38;
+    /* warning/success */
+    --warning-color: #DA2C38;
     --success-color: #226F54;
 
     /* box-shadow */
@@ -37,13 +38,13 @@
 
     /* gaps */
     --content-gap: 1.75rem;
-    --content-gap-small: 0.5rem;
+    --content-gap-small: 0.75rem;
 
     /* padding */
     --layout-padding: 0 5rem;
     --layout-padding-mobile: 0 2rem;
     --card-padding: 2rem;
-    --card-padding-small: 1.5rem;
+    --card-padding-small: 1rem;
 
     /* inputs */
     --input-bg:	'';

@@ -2,7 +2,7 @@ import { clerkMiddleware, createRouteMatcher} from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 const isProtectedRoute = createRouteMatcher([
-    '/dashboard(.*)',
+    '/home(.*)',
     '/profile(.*)',
 ]);
 
@@ -12,7 +12,7 @@ export default clerkMiddleware((auth, req) => {
 
     // Redirect logged-in users from the root route to /dashboard
     if (req.nextUrl.pathname === '/' && auth().userId) {
-        return NextResponse.redirect(new URL('/dashboard', req.url));
+        return NextResponse.redirect(new URL('/home', req.url));
     }
   
 });
