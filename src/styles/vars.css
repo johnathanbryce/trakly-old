@@ -1,18 +1,21 @@
 :root {
     /* primary colors / default / misc */
-    --accent-color: #2B59C3;
-    --default-color: #F8F1E7;
+    --accent-color: #0E6FFF;
+    --accent-color-light: #80BFFF;
+    --accent-color-extra-light: #F2F8FF;
+    --default-color: #040303;
 
 
     /* backgrounds */
-    --background-primary: #F8F1E7; 
-    --background-secondary:	#F5F5F5;
+    --background-primary: #FAFAFB; 
+    --background-secondary:	#FFFFFF;
     --background-tertiary: '';
-    --card-bg-primary:	#F5F5F5;
+    --card-bg-primary:	#FFFFFF;
 
     /* fonts */
     --font-primary:	#040303;
-    --font-secondary: #8A8A8A;
+    --font-secondary: #4A4A4A;
+    --font-secondary-light: rgba(74, 74, 74, 0.5);
     --font-headers:	'';
 
     /* buttons */
@@ -26,12 +29,22 @@
     --border-radius: 0.375rem;
     --border-color: '';
 
-    /* error/success */
-    --error-color: #DA2C38;
+    /* warning/success */
+    --warning-color: #DA2C38;
     --success-color: #226F54;
 
     /* box-shadow */
     --box-shadow:0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* gaps */
+    --content-gap: 1.75rem;
+    --content-gap-small: 0.75rem;
+
+    /* padding */
+    --layout-padding: 0 5rem;
+    --layout-padding-mobile: 0 2rem;
+    --card-padding: 2rem;
+    --card-padding-small: 1rem;
 
     /* inputs */
     --input-bg:	'';

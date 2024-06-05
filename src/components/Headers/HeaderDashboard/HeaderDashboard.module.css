@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--layout-padding);
+    height: 7.5rem; 
+    background-color: var(--background-primary);
+    border-radius: var(--border-radius);
+    border-bottom: 0.05rem solid var( --default-color);
+}
+
+/* Mobile Devices (landscape) */
+@media (max-width: 775px) { 
+    .header {
+        padding: var(--layout-padding-mobile);
+    }
+}

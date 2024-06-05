@@ -2,12 +2,19 @@ export default interface Contact {
     _id: string;
     firstName: string;
     lastName?: string,
-    email: string;
+    email?: string;
     phone?: string;
     company?: string;
     position?: string;
+    links?: {
+        website?: string,
+        linkedIn?: string,
+        github?: string,
+        instagram?: string,
+    }
     notes?: string;
-    lastContactedDate?: Date;
-    createdAt: Date;
-    updatedAt: Date;
+    contactMethod?: string;
+    lastContactedDate?: Date | string;
+    createdAt: Date | string;
+    updatedAt?: Date | string;
 }

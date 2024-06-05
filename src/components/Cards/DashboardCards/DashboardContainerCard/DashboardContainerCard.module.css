@@ -1,0 +1,16 @@
+.dashboard_container_card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-gap);
+    background-color: var(--background-secondary);
+    width: 95%;
+    border-radius: var(--border-radius);
+    padding: var(--card-padding);
+}
+
+/* Tablets (landscape) / Small Laptops) */
+@media (max-width: 1200px) { 
+    .dashboard_container_card {
+        width: 100%;
+    }
+}
