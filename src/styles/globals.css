@@ -67,12 +67,12 @@ p {
   margin: 0;
   font-weight: 500;
   color: var(--font-secondary);
-  font-size: clamp(1.2rem, 1.2rem + 1vw, 1.45rem);
+  font-size: clamp(1rem, 1.2rem + 1vw, 1.65rem);
 }
 
 li {
   color: var(--font-secondary);
-  font-size: clamp(1.2rem, 1.2rem + 1vw, 1.45rem);
+  font-size: clamp(1rem, 1.2rem + 1vw, 1.65rem);
 }
 
 h1 {

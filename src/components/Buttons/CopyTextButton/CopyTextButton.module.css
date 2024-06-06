@@ -14,3 +14,12 @@
     font-size: 1rem;
     color: var(--success-color);
 }
+
+.icon {
+    color: var(--icon-color);
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: var(--accent-color);
+}

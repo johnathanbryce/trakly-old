@@ -28,7 +28,7 @@
 }
 
 .contact, .date_added, .location_details, .industry {
-    font-size: 1.2rem;
+    font-size: clamp(0.75rem, 0.5rem + 1vw, 1.45rem);
 }
 
 .header_container{
@@ -42,9 +42,15 @@
     font-weight: 600; 
 }
 
+.card_top_flex_container{
+    flex: 1;
+}
+
 .card_footer{
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    flex: 1;
 }
 
 .icons_container {
@@ -53,6 +59,7 @@
 }
 
 .icon_contact {
+    color: var(--icon-color);
     cursor: pointer;
     transition: var(--hover-transition);
 }
@@ -67,7 +74,7 @@
         display: flex;
         flex-direction: column; 
         align-items: flex-start;
-        gap: var(--content-gap);
+        gap: var(--content-gap-small);
     }
 }
 

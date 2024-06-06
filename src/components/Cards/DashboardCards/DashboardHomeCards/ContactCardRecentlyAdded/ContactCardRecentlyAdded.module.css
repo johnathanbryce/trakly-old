@@ -1,7 +1,7 @@
 .card_recent{
     display: flex;
     flex-direction: column;
-    gap: var(--content-gap-small);
+    gap: var(--content-gap);
     padding: var(--card-padding-small);
     border-radius: var(--border-radius);
     border: 0.05rem solid var(--font-secondary);
@@ -27,8 +27,8 @@
     opacity: 1; 
 }
 
-.contact, .date_added {
-    font-size: 1.2rem;
+.contact, .date_added, .position_and_company_text {
+    font-size: clamp(0.75rem, 0.5rem + 1vw, 1.45rem);
 }
 
 .name, .added_text {
@@ -36,9 +36,15 @@
     font-weight: 600; 
 }
 
+.card_top_flex_container{
+    flex: 1;
+}
+
 .card_footer{
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    flex: 1;
 }
 
 .icons_container {
@@ -47,6 +53,7 @@
 }
 
 .icon_contact {
+    color: var(--icon-color);
     cursor: pointer;
     transition: var(--hover-transition);
 }
@@ -61,7 +68,7 @@
         display: flex;
         flex-direction: column; 
         align-items: flex-start;
-        gap: var(--content-gap);
+        gap: var(--content-gap-small);
     }
 }
 
