@@ -9,6 +9,19 @@
     border-bottom: 0.05rem solid var( --default-color);
 }
 
+.log_out_btn{
+    font-weight: bold;
+    color: var(--button-primary-text);
+    background-color: var(--button-bg);
+    padding: var(--button-padding);
+    transition: var(--hover-transition);
+}
+
+.log_out_btn:hover{
+    color: var(--button-hover-text);
+    background-color: var(--button-hover-bg);
+}
+
 /* Mobile Devices (landscape) */
 @media (max-width: 775px) { 
     .header {

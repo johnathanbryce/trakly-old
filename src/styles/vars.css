@@ -1,38 +1,42 @@
 :root {
     /* primary colors / default / misc */
-    --accent-color: #0E6FFF;
-    --accent-color-light: #80BFFF;
-    --accent-color-extra-light: #F2F8FF;
-    --default-color: #040303;
-
+    --accent-color: #1E90FF;
+    --accent-color-light: #6EB8FF;
+    --accent-color-extra-light: #E0F2FF;
+    --default-color: #F1F1F1;
 
     /* backgrounds */
-    --background-primary: #FAFAFB; 
-    --background-secondary:	#FFFFFF;
-    --background-tertiary: '';
-    --card-bg-primary:	#FFFFFF;
+    --background-primary: #121212;
+    --background-secondary: #1F1F1F;
+    --background-tertiary: #2B2B2B;
+    --card-bg-primary: #1F1F1F;
 
     /* fonts */
-    --font-primary:	#040303;
-    --font-secondary: #4A4A4A;
-    --font-secondary-light: rgba(74, 74, 74, 0.5);
-    --font-headers:	'';
+    --font-primary: #F1F1F1;
+    --font-secondary: #B3B3B3;
+    --font-secondary-light: rgba(179, 179, 179, 0.5);
+    --font-headers: '';
 
     /* buttons */
-    --button-primary-text:'';
-    --button-secondary-text:'';
-    --button-hover-bg: '';
-    --button-hover-bg-secondary: '';
-    --button-padding: '';
+    --button-bg: var(--accent-color-extra-light);
+    --button-primary-text: #121212;
+    --button-secondary-text: #1E90FF;
+    --button-hover-bg: #1A76C2;
+    --button-hover-bg-secondary: #3A3A3A;
+    --button-hover-text: #F1F1F1;
+    --button-padding: 0.75rem 1.5rem;
 
     /* borders */
     --border-radius: 0.375rem;
-    --border-color: '';
+    --border-color: #2B2B2B;
+
+    /* icons */
+    --icon-color: var(--default-color); 
 
     /* warning/success */
-    --warning-color: #DA2C38;
-    --success-color: #226F54;
-
+    --warning-color: #FF073A;
+    --success-color: #37D067;
+    
     /* box-shadow */
     --box-shadow:0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -54,4 +58,5 @@
     
     /* hover */
     --hover-transition: 0.3s ease-in-out;
+
 }

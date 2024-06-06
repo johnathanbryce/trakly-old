@@ -3,7 +3,6 @@ import styles from './CopyTextButton.module.css'
 import { useState } from 'react';
 // External Libraries
 import { IconCopy,  IconCircleDashedCheck } from '@tabler/icons-react';
-
 interface CopyTextButton {
     textToCopy: string
 }
@@ -23,8 +22,7 @@ export default function CopyTextButton({ textToCopy }: CopyTextButton) {
   return (
     <button onClick={handleCopy} className={styles.copy_button_container}>
       <span className={styles.copy_text}>{copied ? 'Copied!' : ''}</span>
-      {copied ? <IconCircleDashedCheck size={iconSize} className={styles.icon_success} /> : <IconCopy size={iconSize} /> }
-
+      {copied ? <IconCircleDashedCheck size={iconSize} className={styles.icon_success} /> : <IconCopy size={iconSize} className={styles.icon} /> }
     </button>
   );
 }

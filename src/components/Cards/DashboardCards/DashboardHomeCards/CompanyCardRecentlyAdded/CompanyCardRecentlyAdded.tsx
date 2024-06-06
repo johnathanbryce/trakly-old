@@ -23,28 +23,28 @@ export default function CompanyCardRecentlyAdded({
   return (
     <article className={styles.card_recent}>
         <IconTrash className={styles.icon_delete} size={iconSize} onClick={handleDeleteItem}/>
-        <div className={styles.header_container}>
-          <p className={styles.name}>{name}</p>
-          <p className={styles.industry}>{industry ?? <br/>}</p>
+        <div className={styles.card_top_flex_container}>
+            <div className={styles.header_container}>
+              <p className={styles.name}>{name}</p>
+              <p className={styles.industry}>{industry ?? <br/>}</p>
+            </div>
+            
+            <p className={styles.location_details}> {locationDetails?.address} {bracket} {locationDetails?.locationCity}</p>
+            {/* TODO: work on logic to route to contact created in Trakly */}
+            <p className={styles.contact}><Link href={`/contacts/${_id}`}>Contact: {mainContact}</Link></p>
         </div>
-        
-        <p className={styles.location_details}> {locationDetails?.address} {bracket} {locationDetails?.locationCity}</p>
-        {/* TODO: work on logic to route to contact created in Trakly */}
-        <p className={styles.contact}><Link href={`/contacts/${_id}`}>Contact: {mainContact}</Link></p>
-
-        
 
         <div className={styles.card_footer}>
-          <p className={styles.date_added}><span className={styles.added_text}>Added: </span>{createdAt.toString()}</p>
-          <div className={styles.icons_container}>
-              {links?.linkedIn && <Link href={links.linkedIn} target="_blank"><IconBrandLinkedin className={styles.icon_contact} size={iconSize}/></Link>}
-              {links?.website &&  <Link href={links.website} target="_blank"><IconWorldWww className={styles.icon_contact} size={iconSize}/></Link>}
-              {links?.github &&   <Link href={links.github} target="_blank"><IconBrandGithub className={styles.icon_contact} size={iconSize}/></Link>}
-              {links?.instagram && <Link href={links.instagram} target="_blank"><IconBrandInstagram className={styles.icon_contact} size={iconSize}/></Link>}
-              {links?.facebook && <Link href={links.facebook} target="_blank"><IconBrandFacebook className={styles.icon_contact} size={iconSize}/></Link>}
-              {phone && <a href={`tel:${phone}`}><IconPhone className={styles.icon_contact} size={iconSize}/></a>}
-              {email && <a href={`mailtol:${email}`} target="_blank"><IconMail className={styles.icon_contact} size={iconSize}/></a>}
-          </div>
+            <p className={styles.date_added}><span className={styles.added_text}>Added: </span>{createdAt.toString()}</p>
+            <div className={styles.icons_container}>
+                {links?.linkedIn && <Link href={links.linkedIn} target="_blank"><IconBrandLinkedin className={styles.icon_contact} size={iconSize}/></Link>}
+                {links?.website &&  <Link href={links.website} target="_blank"><IconWorldWww className={styles.icon_contact} size={iconSize}/></Link>}
+                {links?.github &&   <Link href={links.github} target="_blank"><IconBrandGithub className={styles.icon_contact} size={iconSize}/></Link>}
+                {links?.instagram && <Link href={links.instagram} target="_blank"><IconBrandInstagram className={styles.icon_contact} size={iconSize}/></Link>}
+                {links?.facebook && <Link href={links.facebook} target="_blank"><IconBrandFacebook className={styles.icon_contact} size={iconSize}/></Link>}
+                {phone && <a href={`tel:${phone}`}><IconPhone className={styles.icon_contact} size={iconSize}/></a>}
+                {email && <a href={`mailtol:${email}`} target="_blank"><IconMail className={styles.icon_contact} size={iconSize}/></a>}
+            </div>
         </div>
     </article>
   )
