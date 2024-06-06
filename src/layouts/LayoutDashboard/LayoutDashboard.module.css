@@ -1,6 +1,6 @@
 .layout_dashboard {
     display: flex;
     gap: var(--content-gap);
-    padding-top: var(--content-gap);
+    padding-top: var(--content-gap-large)
 }
 

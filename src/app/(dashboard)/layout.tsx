@@ -21,13 +21,10 @@ export default function LoggedInLayout({
         <HeaderDashboard />
         <LayoutDashboard>
           <Navigation />
-          {/* column layout for content left & right padding when navbar is sticky footer */}
-          <LayoutDashboardColumn>
+          <LayoutDashboardColumn> {/* column layout for content left & right padding when navbar is sticky footer */}
             {children}
           </LayoutDashboardColumn>
         </LayoutDashboard>
-        
-
       </RecoilRoot>
     )
   }
