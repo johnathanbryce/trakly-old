@@ -43,6 +43,7 @@
     /* gaps */
     --content-gap: 1.75rem;
     --content-gap-small: 0.75rem;
+    --content-gap-large: 4rem;
 
     /* padding */
     --layout-padding: 0 5rem;
