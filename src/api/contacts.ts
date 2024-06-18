@@ -3,9 +3,9 @@ import Contact from '@/types/contact'
 import FetchResult from '@/types/dataFetchResult';
 
 // getContacts currently not in-use, contacts data fetching handled generally/flexibly via useFetchData hook
-/* export const getContacts = async (): Promise<FetchResult<Contact[]>> => {
+/* export const getContacts = async (apiRoute: string): Promise<FetchResult<Contact[]>> => {
     try {
-        const response = await fetch('/api/contacts');
+        const response = await fetch(apiRoute);
         if (!response.ok) {
           throw new Error('Failed to fetch contacts');
         }
