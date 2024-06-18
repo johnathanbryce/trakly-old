@@ -1,3 +1,4 @@
+
 import styles from './contacts.module.css'
 // Components
 import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardContainerCard/DashboardContainerCard'
@@ -5,7 +6,7 @@ import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardC
 export default function Contacts() {
   return (
       <DashboardContainerCard title='Contacts'>
-        <div> stuff </div>
+        <h2> stuff </h2>
       </DashboardContainerCard>
   )
 }

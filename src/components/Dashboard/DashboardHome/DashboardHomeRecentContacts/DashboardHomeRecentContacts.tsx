@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import { useEffect, useState } from 'react';
 // Next
 import Link from 'next/link';
 // Interal Components
@@ -45,6 +46,12 @@ const DUMMY_CONTACTS = [
 
 export default function DashboardHomeRecentContacts() {
     //TODO: fetch data here for recent contacts 
+
+
+    useEffect(() => {
+
+    }, [])
+    
 
     if(DUMMY_CONTACTS.length === 0){
         return(
