@@ -6,6 +6,10 @@ import Link from 'next/link';
 import Contact from '@/types/contact'
 // Utils
 import { formatDate } from '@/utils/dateHelpers';
+import { deleteItemFromDatabase } from '@/utils/deleteHelpers';
+// Recoil State
+import { useRecoilState } from 'recoil';
+import { contactsState } from '@/recoil/dataFetchAtoms';
 // External Libraries
 import { IconMail, IconBrandLinkedin, IconPhone, IconTrash, IconWorldWww, IconBrandGithub, IconBrandMeta  } from '@tabler/icons-react';
 
@@ -14,20 +18,31 @@ export default function ContactCardRecentlyAdded({
     contact_id, first_name, last_name, email, phone, company, position, created_at, github, instagram, website, linkedin
 }: Contact) {
 
+  const [contacts, setContacts] = useRecoilState(contactsState);
+
     const contactBracket = email && phone ? '|' : '';
     const companyAnyPositioBracket = position && company ? '-' : ''
     const iconSize = 20;
 
     const formattedDate = formatDate(created_at.toString())
 
-    // TODO create this fn (will likely be reusable elsewhere)
-    const handleDeleteItem = () => {
-
+    const handleDeleteContact = async () => {
+      try {
+        await deleteItemFromDatabase(`http://localhost:8000/api/contacts/${contact_id}`);
+        // update Recoil state by removing the deleted contact
+        setContacts(prevState => ({
+          ...prevState,
+          data: (prevState.data ?? []).filter(contact => contact.contact_id !== contact_id) // checks if prevState.data is null or undefined, if so provide an empty array 
+        }));
+        
+      } catch (error) {
+        console.error('Failed to delete contact:', error);
+      }
     }
-
+    
   return (
     <article className={styles.card_recent}>
-        <IconTrash className={styles.icon_delete} size={iconSize} onClick={handleDeleteItem}/>
+        <IconTrash className={styles.icon_delete} size={iconSize} onClick={handleDeleteContact}/>
         <div className={styles.card_top_flex_container}>
           <p className={styles.name}>{`${first_name} ${last_name ? last_name : ''}`}</p>
 

@@ -27,12 +27,12 @@ export default /* async  */function Dashboard() {
 
   return (
     <section className={styles.dashboard_home}>
-        <DashboardContainerCard title='Recently added contacts'>
+        <DashboardContainerCard title='Recently added contacts' subTitle="View all contacts..." subTitleLink='/contacts'>
           <Carousel>
               <DashboardHomeRecentContacts />
           </Carousel>
         </DashboardContainerCard>
-        <DashboardContainerCard title='Recently added companies'>
+        <DashboardContainerCard title='Recently added companies' subTitle="View all companies..." subTitleLink='/companies'>
           <Carousel>
               <DashboardHomeRecentCompanies />
           </Carousel>
