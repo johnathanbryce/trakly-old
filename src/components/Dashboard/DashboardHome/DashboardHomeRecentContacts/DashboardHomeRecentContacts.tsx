@@ -1,81 +1,50 @@
 'use client'
-import { useEffect, useState } from 'react';
-// Next
-import Link from 'next/link';
 // Interal Components
 import ContactCardRecentlyAdded from '@/components/Cards/DashboardCards/DashboardHomeCards/ContactCardRecentlyAdded/ContactCardRecentlyAdded'
-
-// DUMMY DATA
-const DUMMY_CONTACTS = [
-    {
-        _id: Math.random(),
-        firstName: 'John',
-        lastName: 'Brown',
-        email: 'johnbrown@gmail.com',
-        company: 'Blue Wave Dev',
-        position: 'Frontend Developer',
-        createdAt: 'Apr 8, 2024',
-        links: {
-            linkedIn: 'https://www.linkedin.com/in/johnathanbryce/',
-            website: 'https://www.jbryce.dev/'
-        }
-    },
-    {
-        _id: Math.random(),
-        firstName: 'Jane',
-        lastName: 'Doe',
-        email: 'janedoe@gmail.com',
-        phone: '6041234567',
-        company: 'Tech Solutions',
-        createdAt: 'May 12, 2024',
-        links: {
-            website: 'https://www.jbryce.dev/'
-        }
-        
-    },
-    {
-        _id: Math.random(),
-        firstName: 'Emily',
-        lastName: 'Smith',
-        phone: '7789876543',
-        company: 'InnovateX',
-        position: 'Product Manager',
-        createdAt: 'May 17, 2024',
-    },
-];
+// Custom Hooks
+import { useFetchData } from '@/hooks/useFetchData';
+// Recoil State
+import { contactsState } from '@/recoil/dataFetchAtoms';
+// Types
+import Contact from '@/types/contact';
 
 export default function DashboardHomeRecentContacts() {
-    //TODO: fetch data here for recent contacts 
+    const { data: contacts, error, loading } = useFetchData<Contact[]>(`http://localhost:8000/api/contacts?limit=5`, contactsState); 
 
-
-    useEffect(() => {
-
-    }, [])
+    if (loading) {
+        return <p>Loading contacts...</p>;
+    }
     
-
-    if(DUMMY_CONTACTS.length === 0){
-        return(
+    if (error) {
+        return <h1>Error fetching contacts data... please try again</h1>;
+    }
+    
+    if (!contacts || contacts.length === 0) {
+        return (
             <div>
                 <p> Hmm, looks like you haven&apos;t added any contacts yet...</p>
                 <p> Click here to add a contact</p>
             </div>
-        )
+        );
     }
 
   return (
         <>
-            {DUMMY_CONTACTS.map((contact) =>
+            {contacts.map((contact) =>
                 <ContactCardRecentlyAdded
-                    _id={contact._id.toString()}
-                    key={contact._id} 
-                    firstName={contact.firstName}
-                    lastName={contact.lastName}
+                    contact_id={contact.contact_id}
+                    key={contact.contact_id} 
+                    first_name={contact.first_name}
+                    last_name={contact.last_name}
                     position={contact.position}
                     company={contact.company}
                     email={contact.email}
                     phone={contact.phone}
-                    links={contact.links}
-                    createdAt={contact.createdAt}
+                    github={contact.github}
+                    instagram={contact.instagram}
+                    website={contact.website}
+                    linkedin={contact.linkedin}
+                    created_at={contact.created_at}
                 />
             )}
         </>
