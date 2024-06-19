@@ -1,8 +1,15 @@
 import { atom } from 'recoil';
+import Contact from '@/types/contact';
 
 // data object states:
 
-export const contactsState = atom({
+interface ContactsState {
+  data: Contact[] | null;
+  error: string | null;
+  loading: boolean;
+}
+
+export const contactsState = atom<ContactsState>({
   key: 'contactsState',
   default: {
     data: null,

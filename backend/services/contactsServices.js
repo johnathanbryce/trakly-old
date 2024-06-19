@@ -20,13 +20,13 @@ const getContacts = (req, res) => {
 const getContactById = (req, res) => {
   const id = parseInt(req.params.id)
 
-  pool.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
+  pool.query('SELECT * FROM contacts WHERE contact_id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
 
     if(results.rows.length === 0 || results.rows === null){
-      return res.status(404).json({msg: `User not found`})
+      return res.status(404).json({msg: `Contact not found`})
     }
 
     res.status(200).json(results.rows)
@@ -64,13 +64,13 @@ const updateContact = (req, res) => {
   const { name, email } = req.body
 
   pool.query(
-    'UPDATE users SET name = $1, email = $2 WHERE id = $3',
+    'UPDATE contacts SET name = $1, email = $2 WHERE id = $3',
     [name, email, id],
     (error, results) => {
       if (error) {
         throw error
       }
-      res.status(200).send(`User modified with ID: ${id}`)
+      res.status(200).send(`Contact modified with ID: ${id}`)
     }
   )
 }
@@ -78,11 +78,11 @@ const updateContact = (req, res) => {
 const deleteContact = (req, res) => {
   const id = parseInt(req.params.id)
 
-  pool.query('DELETE FROM users WHERE id = $1', [id], (error, results) => {
+  pool.query('DELETE FROM contacts WHERE contact_id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
-    res.status(200).send(`User deleted with ID: ${id}`)
+    res.status(200).send(`Contact deleted with ID: ${id}`)
   })
 }
 

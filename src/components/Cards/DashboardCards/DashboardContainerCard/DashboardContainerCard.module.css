@@ -8,9 +8,29 @@
     padding: var(--card-padding);
 }
 
+.header_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_container p {
+    font-size: clamp(0.8rem, 1rem + 1vw, 1.25rem);
+}
+
 /* Tablets (landscape) / Small Laptops) */
 @media (max-width: 1200px) { 
     .dashboard_container_card {
         width: 100%;
     }
 }
+
+/* Tablets (portrait) */
+@media (max-width: 950px) { 
+    .header_container p {
+        display: none;
+    }
+}
+
+
+

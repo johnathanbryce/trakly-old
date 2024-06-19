@@ -1,5 +1,4 @@
 'use client'
-import { Suspense } from 'react';
 // Interal Components
 import ContactCardRecentlyAdded from '@/components/Cards/DashboardCards/DashboardHomeCards/ContactCardRecentlyAdded/ContactCardRecentlyAdded'
 import LoaderSpinner from '@/components/Loaders/LoaderSpinner/LoaderSpinner';
@@ -7,11 +6,15 @@ import LoaderSpinner from '@/components/Loaders/LoaderSpinner/LoaderSpinner';
 import { useFetchData } from '@/hooks/useFetchData';
 // Recoil State
 import { contactsState } from '@/recoil/dataFetchAtoms';
+import { useRecoilValue } from 'recoil';
 // Types
 import Contact from '@/types/contact';
 
 export default function DashboardHomeRecentContacts() {
-    const { data: contacts, error, loading } = useFetchData<Contact[]>(`http://localhost:8000/api/contacts?limit=5`, contactsState); 
+    const limit = 5;
+    const { data: contacts, error, loading } = useFetchData<Contact[]>(`http://localhost:8000/api/contacts?limit=${limit}`, contactsState); 
+    // recoil global state (to update on deletion of contacts)
+    const recoilContacts = useRecoilValue(contactsState);
 
     if (loading) {
         return <LoaderSpinner />;
@@ -21,7 +24,7 @@ export default function DashboardHomeRecentContacts() {
         return <h1>Error fetching contacts data... please try again</h1>;
     }
     
-    if (contacts && contacts.length === 0) {
+    if (recoilContacts.data && recoilContacts.data.length === 0) {
         return (
             <div>
                 <p> Hmm, looks like you haven&apos;t added any contacts yet...</p>
@@ -32,7 +35,7 @@ export default function DashboardHomeRecentContacts() {
 
   return (
     <>
-        {contacts && contacts.map((contact) => (
+        {recoilContacts.data && recoilContacts.data.map((contact: Contact) => (
             <ContactCardRecentlyAdded
                 contact_id={contact.contact_id}
                 key={contact.contact_id} 
