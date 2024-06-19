@@ -1,0 +1,16 @@
+.loader_wrapper{
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.loader {
+    width: 5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 0.5rem solid var(--default-color);
+    border-right-color: var(--accent-color);
+    animation: l2 1s infinite linear;
+  }
+
+  @keyframes l2 {to{transform: rotate(1turn)}}
