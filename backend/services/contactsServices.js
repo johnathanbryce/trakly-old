@@ -2,13 +2,11 @@ const pool = require('../config/db');
 
 const getContacts = (req, res) => {
   const limit = parseInt(req.query.limit);
-  pool.query('SELECT * FROM contacts ORDER BY id ASC', (error, results) => {
+  pool.query('SELECT * FROM contacts ORDER BY contact_id ASC', (error, results) => {
     if (error) {
       res.status(404).json({msg: `Error fetching users. Please try again.`})
       throw error
     } 
-
-    console.log('getcontacts', results.rows)
     
     // if there is a limit in the req  (e.g: ?limit=2 in the url), limit the result res
     if (!isNaN(limit) && limit > 0) {
@@ -36,21 +34,30 @@ const getContactById = (req, res) => {
 }
 
 const createContact = (req, res) => {
-  const { name, email, company, position, createdAt, links } = req.body;
+  const { user_id, first_name, last_name, email, phone, company, position, website, linkedin, github, instagram, notes, contact_method, last_contacted_date, created_at, updated_at } = req.body;
 
-  pool.query(
-    'INSERT INTO contacts (name, email, company, position, created_at, links) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id',
-    [name, email, company || null, position || null, createdAt || new Date(), links ? JSON.stringify(links) : null],
-    (error, results) => {
-      if (error) {
-        console.error('Error inserting data:', error);
-        res.status(500).send('Error creating contact');
-      } else {
-        res.status(201).send(`User added with ID: ${results.rows[0].id}`);
-      }
+  const query = `
+    INSERT INTO contacts 
+    (user_id, first_name, last_name, email, phone, company, position, notes, contact_method, last_contacted_date, created_at, updated_at, website, linkedin, github, instagram) 
+    VALUES 
+    ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) 
+    RETURNING contact_id
+  `;
+
+  const values = [
+    user_id, first_name, last_name, email, phone, company, position, notes || null, contact_method || null, last_contacted_date || null, created_at || new Date(), updated_at || new Date(), website || null, linkedin || null, github || null, instagram || null
+  ];
+
+  pool.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Error inserting data:', error);
+      res.status(500).send('Error creating contact');
+    } else {
+      res.status(201).send(`Contact added with ID: ${results.rows[0].contact_id}`);
     }
-  );
+  });
 };
+
 
 const updateContact = (req, res) => {
   const id = parseInt(req.params.id)
