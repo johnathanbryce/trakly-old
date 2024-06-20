@@ -1,0 +1,35 @@
+.input {
+    color: var(--font-dark);
+    background-color: var(--background-white);
+/*     width: 100%; */
+    padding: var(--input-padding);
+    border-radius: var(--border-radius);
+}
+
+.input:focus {
+    outline: 0.1rem solid var(--accent-color);
+    transition: var(--input-focus-transition);
+}
+
+.error {
+    border: 0.1rem solid var(--warning-color);
+    animation: shake 0.8s ease-in-out; /* Add shake animation */
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    10%, 90% { transform: translateX(-5px); }
+    20%, 80% { transform: translateX(5px); }
+    30%, 70% { transform: translateX(-5px); }
+    40%, 60% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Mobile Devices (landscape) */
+@media (max-width: 775px) { 
+
+}
+
+/* Mobile Devices up to 480px */
+@media (max-width: 480px) {  
+}
