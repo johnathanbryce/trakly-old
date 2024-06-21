@@ -7,7 +7,7 @@ const isProtectedRoute = createRouteMatcher([
 ]);
 
 export default clerkMiddleware((auth, req) => {
-    // protects /dashboard and /profile routes
+    // protects /home and /profile routes
     if (isProtectedRoute(req)) auth().protect();
 
     // Redirect logged-in users from the root route to /dashboard
