@@ -10,6 +10,8 @@ import { deleteItemFromDatabase } from '@/utils/deleteHelpers';
 // Recoil State
 import { useRecoilState } from 'recoil';
 import { contactsState } from '@/recoil/dataFetchAtoms';
+// Clerk Auth
+import { useAuth } from '@clerk/clerk-react';
 // External Libraries
 import { IconMail, IconBrandLinkedin, IconPhone, IconTrash, IconWorldWww, IconBrandGithub, IconBrandMeta  } from '@tabler/icons-react';
 
@@ -18,17 +20,25 @@ export default function ContactCardRecentlyAdded({
     contact_id, first_name, last_name, email, phone, company, position, created_at, github, instagram, website, linkedin
 }: Contact) {
 
-  const [contacts, setContacts] = useRecoilState(contactsState);
+    const [contacts, setContacts] = useRecoilState(contactsState);
+    // clerk auth for userId and token for deleteItems headers
+    const { userId, getToken } = useAuth();  
 
     const contactBracket = email && phone ? '|' : '';
-    const companyAnyPositioBracket = position && company ? '-' : ''
+    const companyPositionBracket = position && company ? '-' : ''
     const iconSize = 20;
 
     const formattedDate = formatDate(created_at.toString())
 
     const handleDeleteContact = async () => {
+      const token = await getToken();
+      if (!userId || !token) {
+        console.error('User ID and/or token is not defined');
+        return;
+      }
+
       try {
-        await deleteItemFromDatabase(`http://localhost:8000/api/contacts/${contact_id}`);
+        await deleteItemFromDatabase(`http://localhost:8000/api/contacts/${contact_id}`, userId, token);
         // update Recoil state by removing the deleted contact
         setContacts(prevState => ({
           ...prevState,
@@ -47,7 +57,7 @@ export default function ContactCardRecentlyAdded({
           <p className={styles.name}>{`${first_name} ${last_name ? last_name : ''}`}</p>
 
           <div>
-            <p className={styles.position_and_company_text}> {position} {companyAnyPositioBracket} {company}</p>
+            <p className={styles.position_and_company_text}> {position} {companyPositionBracket} {company}</p>
           </div>
           
           <p className={styles.contact}> 
@@ -63,7 +73,7 @@ export default function ContactCardRecentlyAdded({
               {github && <Link href={github} target="_blank"><IconBrandGithub className={styles.icon_contact} size={iconSize}/></Link>}
               {instagram && <Link href={instagram} target="_blank"><IconBrandMeta className={styles.icon_contact} size={iconSize}/></Link>}
               {phone && <a href={`tel:${phone}`}><IconPhone className={styles.icon_contact} size={iconSize}/></a>}
-              {email && <a href={`mailtol:${email}`} target="_blank"><IconMail className={styles.icon_contact} size={iconSize}/></a>}
+              {email && <a href={`mailto:${email}`} target="_blank"><IconMail className={styles.icon_contact} size={iconSize}/></a>}
           </div>
         </div>
     </article>
