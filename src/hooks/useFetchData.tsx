@@ -26,14 +26,20 @@ export const useFetchData = <T,>(apiRoute: string, recoilState: any,): FetchResu
   const fetchData = async () => {
     setFetchState((prevState) => ({ ...prevState, loading: true }));
     try {
-      const headers: HeadersInit = {};
+      if (!userId) {
+        throw new Error('User ID is not defined');
+      }
+
+      const token = await getToken();
+      if (!token) {
+        throw new Error('Token is not defined');
+      }
 
       // ensures that user's id and token can be leveraged in express middleware for authorized SQL queries for CRUD operations
-      if (userId) {
-        const token = await getToken();
-        headers['Authorization'] = `Bearer ${token}`;
-        headers['X-User-ID'] = userId;
-      }
+      const headers: HeadersInit = {
+        'Authorization': `Bearer ${token}`,
+        'X-User-ID': userId,
+      };
 
       const response = await fetch(apiRoute, { headers });
 
@@ -43,6 +49,7 @@ export const useFetchData = <T,>(apiRoute: string, recoilState: any,): FetchResu
       
       const result: T = await response.json();
       setFetchState({ data: result, error: null, loading: false });
+
     } catch (error: any) {
       setFetchState({ data: null, error: error.message, loading: false });
     }

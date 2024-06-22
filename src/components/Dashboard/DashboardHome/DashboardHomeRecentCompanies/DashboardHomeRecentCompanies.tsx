@@ -1,6 +1,7 @@
 import React from 'react'
 // Interal Components
 import CompanyCardRecentlyAdded from '@/components/Cards/DashboardCards/DashboardHomeCards/CompanyCardRecentlyAdded/CompanyCardRecentlyAdded';
+import Carousel from '@/components/Carousels/Carousel/Carousel';
 
 // DUMMY DATA
 const DUMMY_COMPANIES = [
@@ -72,7 +73,7 @@ export default function DashboardHomeRecentCompanies() {
     }
  
   return (
-        <>
+        <Carousel>
             {DUMMY_COMPANIES.map((company) =>
                 <CompanyCardRecentlyAdded
                     _id={company._id.toString()}
@@ -87,6 +88,6 @@ export default function DashboardHomeRecentCompanies() {
                     createdAt={company.createdAt}
                 />
             )}
-        </>
+        </Carousel>
   )
 }

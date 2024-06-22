@@ -19,7 +19,7 @@ import { IconMail, IconBrandLinkedin, IconPhone, IconTrash, IconWorldWww, IconBr
 export default function ContactCardRecentlyAdded({
     contact_id, first_name, last_name, email, phone, company, position, created_at, github, instagram, website, linkedin
 }: Contact) {
-
+    // recoil global state to filter out the deleted contact
     const [contacts, setContacts] = useRecoilState(contactsState);
     // clerk auth for userId and token for deleteItems headers
     const { userId, getToken } = useAuth();  

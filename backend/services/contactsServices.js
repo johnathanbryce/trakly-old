@@ -91,7 +91,6 @@ const updateContact = (req, res) => {
 };
 
 const deleteContact = (req, res) => {
-  console.log('req.user', req.user); // Check if req.user is set
   if (!req.user) {
     return res.status(401).json({ message: 'Unauthorized' });
   }
