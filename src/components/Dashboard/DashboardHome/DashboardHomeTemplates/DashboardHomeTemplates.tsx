@@ -1,6 +1,7 @@
 import React from 'react'
 // Interal Components
 import MessageTemplateCard from '@/components/Cards/DashboardCards/DashboardHomeCards/MessageTemplateCard/MessageTemplateCard';
+import Carousel from '@/components/Carousels/Carousel/Carousel';
 
 // DUMMY DATA
 const DUMMY_TEMPLATES = [
@@ -42,7 +43,7 @@ export default function DashboardHomeTemplates() {
     }
 
   return (
-        <>
+        <Carousel>
             {DUMMY_TEMPLATES.map((template) =>
                 <MessageTemplateCard
                     _id={template._id.toString()}
@@ -54,6 +55,6 @@ export default function DashboardHomeTemplates() {
                     updatedAt={template.updatedAt}             
                 />
             )}
-        </>
+        </Carousel>
   )
 }

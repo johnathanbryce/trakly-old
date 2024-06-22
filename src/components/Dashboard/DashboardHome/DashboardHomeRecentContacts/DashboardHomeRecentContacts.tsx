@@ -1,5 +1,6 @@
 'use client'
 // Interal Components
+import Carousel from '@/components/Carousels/Carousel/Carousel';
 import ContactCardRecentlyAdded from '@/components/Cards/DashboardCards/DashboardHomeCards/ContactCardRecentlyAdded/ContactCardRecentlyAdded'
 import LoaderSpinner from '@/components/Loaders/LoaderSpinner/LoaderSpinner';
 // Custom Hooks
@@ -24,17 +25,17 @@ export default function DashboardHomeRecentContacts() {
         return <h1>Error fetching contacts data... please try again</h1>;
     }
     
-    if (recoilContacts.data && recoilContacts.data.length === 0) {
+    if (!recoilContacts.data || recoilContacts.data.length === 0) {
         return (
-            <div>
-                <p> Hmm, looks like you haven&apos;t added any contacts yet...</p>
-                <p> Click here to add a contact</p>
-            </div>
+          <div>
+            <p>Hmm, looks like you haven&apos;t added any contacts yet...</p>
+            <p>Click here to add a contact</p>
+          </div>
         );
-    }
+      }
 
   return (
-    <>
+    <Carousel>
         {recoilContacts.data && recoilContacts.data.map((contact: Contact) => (
             <ContactCardRecentlyAdded
                 contact_id={contact.contact_id}
@@ -52,6 +53,6 @@ export default function DashboardHomeRecentContacts() {
                 created_at={contact.created_at}
             />
         ))}
-    </>
+    </Carousel>
   )
 }
