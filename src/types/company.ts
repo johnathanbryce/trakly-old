@@ -1,23 +1,19 @@
 export default interface Company {
-    _id: string;
+    company_id: string;
     name: string;
     industry?: string;
-    mainContact?: string,
+    main_contact?: string,
     email?: string;
     phone?: string;
-    locationDetails?: {
-        address?: string,
-        locationCity?: string
-    };
+    address?: string;
+    location_city?: string;
     notes?: string;
-    links?: {
-        website?: string,
-        linkedIn?: string,
-        github?: string,
-        instagram?: string,
-        facebook?: string,
-    };
-    lastContactedDate?: Date | string;
-    createdAt: Date | string;
-    updatedAt?: Date | string;
+    website?: string;
+    linkedin?: string;
+    github?: string;
+    instagram?: string;
+    facebook?: string;
+    last_contacted_date?: Date | string;
+    created_at: Date | string;
+    updated_at?: Date | string;
 }
