@@ -7,9 +7,8 @@ const authUser = require('../middleware/authUser')
 // define API endpoints:
 router.get('/companies', authUser, db.getCompanies);
 router.get('/companies/:id', authUser, db.getCompanyById); 
-router.post('/companies', /* authUser, */ db.createCompany); 
+router.post('/companies', authUser, db.createCompany); 
 router.put('/companies/:id', authUser, db.updateCompany); 
 router.delete('/companies/:id', authUser, db.deleteCompany); 
-
 
 module.exports = router;

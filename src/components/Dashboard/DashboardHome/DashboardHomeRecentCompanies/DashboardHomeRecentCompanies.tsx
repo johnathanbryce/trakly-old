@@ -23,14 +23,14 @@ export default function DashboardHomeRecentCompanies() {
     }
     
     if (error) {
-        return <h1>Error fetching contacts data... please try again</h1>;
+        return <h4>Error fetching companies data... please try again</h4>;
     }
     
     if (!recoilCompanies.data || recoilCompanies.data.length === 0) {
         return (
           <div>
-            <p>Hmm, looks like you haven&apos;t added any contacts yet...</p>
-            <p>Click here to add a contact</p>
+            <p>Looks like you haven&apos;t added any companies yet...</p>
+            <p>Click here to add a company.</p>
           </div>
         );
       }
