@@ -1,7 +1,10 @@
 'use client'
 import styles from './ContactCardRecentlyAdded.module.css'
+import { useState } from 'react';
 // Next
 import Link from 'next/link';
+// Internal Components
+import DeleteConfirmation from '@/components/DeleteConfirmation/DeleteConfirmation';
 // Types
 import Contact from '@/types/contact'
 // Utils
@@ -19,6 +22,8 @@ import { IconMail, IconBrandLinkedin, IconPhone, IconTrash, IconWorldWww, IconBr
 export default function ContactCardRecentlyAdded({
     contact_id, first_name, last_name, email, phone, company, position, created_at, github, instagram, website, linkedin
 }: Contact) {
+    // toggle delete confirmation
+    const [toggleDeleteItem, setToggleDeleteItem] = useState(false);
     // recoil global state to filter out the deleted contact
     const [contacts, setContacts] = useRecoilState(contactsState);
     // clerk auth for userId and token for deleteItems headers
@@ -52,7 +57,8 @@ export default function ContactCardRecentlyAdded({
     
   return (
     <article className={styles.card_recent}>
-        <IconTrash className={styles.icon_delete} size={iconSize} onClick={handleDeleteContact}/>
+        <IconTrash className={styles.icon_delete} size={iconSize} onClick={() =>setToggleDeleteItem(true)}/>
+        {toggleDeleteItem && <DeleteConfirmation itemToDelete={`${first_name} ${last_name ? last_name : ''}`} onClickDeleteItem={handleDeleteContact} onClickCloseConfirmation={() => setToggleDeleteItem(false)}/>}
         <div className={styles.card_top_flex_container}>
           <p className={styles.name}>{`${first_name} ${last_name ? last_name : ''}`}</p>
 

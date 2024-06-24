@@ -5,14 +5,8 @@ import styles from './MessageTemplateCard.module.css'
 import CopyTextButton from '@/components/Buttons/CopyTextButton/CopyTextButton';
 // Utils
 import { formatDate } from '@/utils/dateHelpers';
-import { deleteItemFromDatabase } from '@/utils/deleteHelpers';
 // Types
 import MessageTemplate from '@/types/messageTemplate'
-// Recoil State
-import { useRecoilState } from 'recoil';
-import { companiesState } from '@/recoil/dataFetchAtoms';
-// Clerk Auth
-import { useAuth } from '@clerk/clerk-react';
 // External Libraries
 import {  IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 
