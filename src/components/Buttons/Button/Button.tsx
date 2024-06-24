@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Button.module.css';
 // External Libraries
 
-
 interface ButtonProps {
   label: any;
   isLoading: boolean;

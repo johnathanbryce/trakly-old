@@ -37,7 +37,7 @@ export default function DashboardHomeTemplates() {
 
   return (
         <Carousel>
-            {recoilMessageTemplates.data && recoilMessageTemplates.data.map((template) =>
+            {recoilMessageTemplates.data && recoilMessageTemplates.data.map((template: MessageTemplate) =>
                 <MessageTemplateCard
                     template_id={template.template_id}
                     key={template.template_id} 

@@ -1,7 +1,10 @@
 'use client'
 import styles from './CompanyCardRecentlyAdded.module.css'
+import { useState } from 'react';
 // Next
 import Link from 'next/link';
+// Internal Components
+import DeleteConfirmation from '@/components/DeleteConfirmation/DeleteConfirmation';
 // Utils
 import { formatDate } from '@/utils/dateHelpers';
 import { deleteItemFromDatabase } from '@/utils/deleteHelpers';
@@ -19,6 +22,8 @@ import { IconMail, IconBrandLinkedin, IconPhone, IconTrash, IconBrandFacebook, I
 export default function CompanyCardRecentlyAdded({
     company_id, name, email, phone, website, linkedin, github, instagram, facebook, industry, location_city, address, created_at, main_contact
 }: Company) {
+    // toggle delete confirmation
+    const [toggleDeleteItem, setToggleDeleteItem] = useState(false);
     // recoil global state to filter out the deleted contact
     const [companies, setCompanies] = useRecoilState(companiesState);
 
@@ -52,7 +57,8 @@ export default function CompanyCardRecentlyAdded({
 
   return (
     <article className={styles.card_recent}>
-        <IconTrash className={styles.icon_delete} size={iconSize} onClick={handleDeleteCompany}/>
+        <IconTrash className={styles.icon_delete} size={iconSize} onClick={() => setToggleDeleteItem(true)}/>
+        {toggleDeleteItem && <DeleteConfirmation itemToDelete={name} onClickDeleteItem={handleDeleteCompany} onClickCloseConfirmation={() => setToggleDeleteItem(false)}/>}
         <div className={styles.card_top_flex_container}>
             <div className={styles.header_container}>
               <p className={styles.name}>{name}</p>

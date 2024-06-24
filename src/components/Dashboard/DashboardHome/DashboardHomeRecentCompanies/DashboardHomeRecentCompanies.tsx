@@ -33,7 +33,7 @@ export default function DashboardHomeRecentCompanies() {
             <p>Click here to add a company.</p>
           </div>
         );
-      }
+    }
  
   return (
         <Carousel>

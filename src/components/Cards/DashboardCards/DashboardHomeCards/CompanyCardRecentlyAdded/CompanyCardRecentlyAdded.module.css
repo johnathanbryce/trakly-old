@@ -13,12 +13,12 @@
 .icon_delete {
     cursor: pointer;
     position: absolute;
-    right: -0.75rem;
-    top: -0.25rem;
+    right: 0.5rem;
+    top: 0.5rem;
     opacity: 0; 
     color: var(--warning-color);
     background-color: var(--background-secondary);
-    z-index: 10;
+    z-index: 2;
     transition: opacity var(--hover-transition); 
 }
 
@@ -35,6 +35,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: padding-right var(--hover-transition);
+}
+
+.card_recent:hover .header_container {
+    padding-right: 2rem;
 }
 
 .name, .added_text {
