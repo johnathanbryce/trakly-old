@@ -42,10 +42,7 @@ const getCompanyById = (req, res) => {
 };
   
 const createCompany = (req, res) => {
-    //const userId = req.user.id; //TODO: uncomment when done
-
-      // Temporary hardcoded userId for testing purposes
-  const userId = 8; // Replace with an appropriate test user ID
+    const userId = req.user.id; 
 
     const { name, industry, main_contact, email, phone, address, location_city, notes, website, linkedin, github, instagram, facebook, last_contacted_date, created_at, updated_at } = req.body;
   

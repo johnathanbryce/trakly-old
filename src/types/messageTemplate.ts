@@ -1,8 +1,8 @@
 export default interface MessageTemplate {
-    _id: string;
+    template_id: string;
     title: string,
     message: string,
-    targetAudience?: string,
-    createdAt: Date | string;
-    updatedAt?: Date | string;
+    target_audience?: string,
+    created_at: Date | string;
+    updated_at?: Date | string;
 }

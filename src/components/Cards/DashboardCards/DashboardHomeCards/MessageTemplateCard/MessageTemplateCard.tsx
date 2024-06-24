@@ -3,33 +3,39 @@ import { useState } from 'react';
 import styles from './MessageTemplateCard.module.css'
 // Internal Components
 import CopyTextButton from '@/components/Buttons/CopyTextButton/CopyTextButton';
+// Utils
+import { formatDate } from '@/utils/dateHelpers';
+import { deleteItemFromDatabase } from '@/utils/deleteHelpers';
 // Types
 import MessageTemplate from '@/types/messageTemplate'
+// Recoil State
+import { useRecoilState } from 'recoil';
+import { companiesState } from '@/recoil/dataFetchAtoms';
+// Clerk Auth
+import { useAuth } from '@clerk/clerk-react';
 // External Libraries
 import {  IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 
-export default function MessageTemplateCard({title, message, targetAudience, createdAt, updatedAt}: MessageTemplate) {
+export default function MessageTemplateCard({title, message, target_audience, created_at, updated_at}: MessageTemplate) {
+    // expanded state
     const [isExpanded, setIsExpanded] = useState(false); 
 
     const iconSize = 20;
     let trimLimit = 150
     let trimmedMessage = message.length > trimLimit ? `${message.slice(0, trimLimit)}...` : message;
 
-    const handleToggleMessage = () => {
-        setIsExpanded(!isExpanded)
-    }
+    const formattedDateCreatedAt = formatDate(created_at.toString())
+    const formattedDateUpdatedAt = updated_at ? formatDate(updated_at.toString()) : ''
 
-
-    
   return (
     <article className={styles.card_recent}>
         <p className={styles.name}>{title}</p>
-        <p>{targetAudience}</p>
+        <p>{target_audience}</p>
         <div className={styles.message_container}>
                 <p>{ isExpanded ? message : trimmedMessage}</p>
                 <div className={styles.trim_and_copy_container}> 
                     {message.length > trimLimit && (
-                        <div className={styles.trim_message_toggle_container} onClick={handleToggleMessage}>
+                        <div className={styles.trim_message_toggle_container} onClick={() => setIsExpanded(!isExpanded)}>
                             {isExpanded ? (
                                 <>
                                     <p className={styles.toggle}>Read less... </p>
@@ -49,8 +55,8 @@ export default function MessageTemplateCard({title, message, targetAudience, cre
         </div>
         
         <div className={styles.card_footer}>
-         <p className={styles.date_added}><span className={styles.added_text}>Added: </span>{createdAt.toString()}</p>
-         {updatedAt && <p className={styles.date_added}><span className={styles.added_text}>Updated: </span>{updatedAt.toString()}</p>}  
+         <p className={styles.date_added}><span className={styles.added_text}>Added: </span>{formattedDateCreatedAt}</p>
+         {updated_at && <p className={styles.date_added}><span className={styles.added_text}>Updated: </span>{formattedDateUpdatedAt}</p>}  
         </div>
     </article>
   )
