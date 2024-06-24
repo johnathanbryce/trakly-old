@@ -8,9 +8,9 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // routes import
+const companiesRouter = require('./routes/companies')
 const contactsRouter = require('./routes/contacts');
 const usersRouter = require('./routes/users');
-
 
 // middleware to parse JSON bodies
 app.use(express.json()); // built-in body parser
@@ -22,8 +22,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // API routes
-app.use('/api', contactsRouter);
 app.use('/api', usersRouter);
+app.use('/api', contactsRouter);
+app.use('/api', companiesRouter);
+
 
 app.get('/', (req, res) => {
   res.json('hello world')
