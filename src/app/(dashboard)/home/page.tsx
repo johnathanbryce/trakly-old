@@ -5,9 +5,8 @@ import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardC
 import DashboardHomeRecentContacts from '@/components/Dashboard/DashboardHome/DashboardHomeRecentContacts/DashboardHomeRecentContacts';
 import DashboardHomeRecentCompanies from '@/components/Dashboard/DashboardHome/DashboardHomeRecentCompanies/DashboardHomeRecentCompanies';
 import DashboardHomeTemplates from '@/components/Dashboard/DashboardHome/DashboardHomeTemplates/DashboardHomeTemplates';
-import Carousel from '@/components/Carousels/Carousel/Carousel';
 
-export default /* async  */function Dashboard() {
+export default function Dashboard() {
   return (
     <section className={styles.dashboard_home}>
         <DashboardContainerCard title='Recently added contacts' subTitle="View all..." subTitleLink='/contacts'>

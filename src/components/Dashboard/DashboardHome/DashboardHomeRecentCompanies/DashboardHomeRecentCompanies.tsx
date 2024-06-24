@@ -1,91 +1,57 @@
+'use client'
 import React from 'react'
 // Interal Components
 import CompanyCardRecentlyAdded from '@/components/Cards/DashboardCards/DashboardHomeCards/CompanyCardRecentlyAdded/CompanyCardRecentlyAdded';
 import Carousel from '@/components/Carousels/Carousel/Carousel';
-
-// DUMMY DATA
-const DUMMY_COMPANIES = [
-    {
-        _id: Math.random(),
-        name: 'Thinkific',
-        mainContact: 'Jeff Brown',
-        phone: '220 742 5671',
-        industry: 'Tech Solutions',
-        email: 'thinkific@gmail.com',
-        locationDetails: {
-            address: '341 Water St.',
-            locationCity: 'Vancouver',
-        },
-        createdAt: 'June 14, 2024',
-        links: {
-            linkedIn: 'https://www.linkedin.com/in/johnathanbryce/',
-            website: 'https://www.thinkific.com/',
-            instagram: 'https://www.instagram.com/thinkific/'
-        },
-    },
-    {
-        _id: Math.random(),
-        name: 'XYZ Solutions',
-        mainContact: 'Dan Murphy',
-        phone: '413 722 5171',
-        locationDetails: {
-            address: '2412 West 17th Ave',
-        },
-        createdAt: 'June 9, 2024',
-        links: {
-            github: 'https://github.com/johnathanbryce',
-            facebook: 'https://www.facebook.com/',
-            instagram: 'https://www.instagram.com/thinkific/',
-            website: 'https://www.google.ca/'
-        },
-    },
-    {
-        _id: Math.random(),
-        name: 'A2B Processing',
-        mainContact: 'Sarah Dean',
-        industry: 'Consulting Services',
-        phone: '541 712 5643',
-        email: 'sarah@processing.com',
-        locationDetails: {
-            address: '19 East Blvd North',
-            locationCity: 'Toronto',
-        },
-        createdAt: 'April 10, 2024',
-        links: {
-            linkedIn: 'https://www.linkedin.com/in/johnathanbryce/',
-            website: 'https://www.thinkific.com/',
-            instagram: 'https://www.instagram.com/thinkific/'
-        },
-    },
-    
-];
+import LoaderSpinner from '@/components/Loaders/LoaderSpinner/LoaderSpinner';
+// Custom Hooks
+import { useFetchData } from '@/hooks/useFetchData';
+// Recoil State
+import { companiesState } from '@/recoil/dataFetchAtoms';
+import { useRecoilValue } from 'recoil';
+// Types
+import Company from '@/types/company';
 
 export default function DashboardHomeRecentCompanies() {
-    //TODO: fetch data here for recent contacts 
+    const limit = 5;
+    const { data: companies, error, loading } = useFetchData<Company[]>(`http://localhost:8000/api/companies?limit=${limit}`, companiesState); 
+    // recoil global state (to update on deletion of companies)
+    const recoilCompanies = useRecoilValue(companiesState);
 
-    if(DUMMY_COMPANIES.length === 0){
-        return(
-            <div>
-                <p> Hmm, looks like you haven&apos;t added any companies yet...</p>
-                <p> Click here to add a contact</p>
-            </div>
-        )
+    if (loading) {
+        return <LoaderSpinner />;
     }
+    
+    if (error) {
+        return <h4>Error fetching companies data... please try again</h4>;
+    }
+    
+    if (!recoilCompanies.data || recoilCompanies.data.length === 0) {
+        return (
+          <div>
+            <p>Looks like you haven&apos;t added any companies yet...</p>
+            <p>Click here to add a company.</p>
+          </div>
+        );
+      }
  
   return (
         <Carousel>
-            {DUMMY_COMPANIES.map((company) =>
+            {recoilCompanies.data && recoilCompanies.data.map((company: Company) =>
                 <CompanyCardRecentlyAdded
-                    _id={company._id.toString()}
-                    key={company._id} 
+                    company_id={company.company_id}
+                    key={company.company_id} 
                     name={company.name}
-                    mainContact={company.mainContact}
-                    locationDetails={company.locationDetails}
+                    main_contact={company.main_contact}
+                    location_city={company.location_city}
                     industry={company.industry}
                     email={company.email}
                     phone={company.phone}
-                    links={company.links}
-                    createdAt={company.createdAt}
+                    website={company.website}
+                    linkedin={company.linkedin}
+                    instagram={company.instagram}
+                    facebook={company.facebook}
+                    created_at={company.created_at}
                 />
             )}
         </Carousel>
