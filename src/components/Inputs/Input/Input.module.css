@@ -1,19 +1,20 @@
 .input {
-    color: var(--font-dark);
-    background-color: var(--background-white);
-/*     width: 100%; */
+    color: var(--font-primary);
+    background-color: var(--background-secondary);
     padding: var(--input-padding);
     border-radius: var(--border-radius);
+    border: 0.1rem solid var(--default-color);
 }
 
 .input:focus {
-    outline: 0.1rem solid var(--accent-color);
+    border: 0.1rem solid var(--accent-color);
+    outline: none;
     transition: var(--input-focus-transition);
 }
 
 .error {
     border: 0.1rem solid var(--warning-color);
-    animation: shake 0.8s ease-in-out; /* Add shake animation */
+    animation: shake 0.8s ease-in-out; 
 }
 
 @keyframes shake {
@@ -32,4 +33,8 @@
 
 /* Mobile Devices up to 480px */
 @media (max-width: 480px) {  
+    .input {
+        font-size: 1rem;
+    }
 }
+

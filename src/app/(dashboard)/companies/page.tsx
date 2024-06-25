@@ -1,4 +1,5 @@
 'use client'
+import  {useState, useEffect} from 'react';
 import styles from './contacts.module.css'
 // Interal Components
 import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardContainerCard/DashboardContainerCard'
@@ -16,6 +17,17 @@ export default function Companies() {
     const { data: contacts, error, loading } = useFetchData<Company[]>(`http://localhost:8000/api/companies`, companiesState); 
     // recoil global state (to update on deletion of contacts)
     const recoilCompanies = useRecoilValue(companiesState);
+
+    const [filteredCompanies, setFilteredCompanies] = useState<Company[]>(recoilCompanies.data ?? []);
+
+    // ensures filtered contacts is kept in sync with recoilCompanies when recoilCompanies changes
+    useEffect(() => {
+        setFilteredCompanies(recoilCompanies.data ?? []);
+    }, [recoilCompanies]);
+
+    const handleSearchResults = (results: Company[]) => {
+        setFilteredCompanies(results);
+    };
 
     if (loading) {
         return <LoaderSpinner />;
@@ -39,8 +51,15 @@ export default function Companies() {
       }
 
   return (
-    <DashboardContainerCard title='Companies' isGridContainer={true}>
-            {recoilCompanies.data && recoilCompanies.data.map((company: Company) =>
+    <DashboardContainerCard 
+        title='Contacts' 
+        isGridContainer={true} 
+        isSearchBar={true} 
+        searchValues={recoilCompanies.data} 
+        onSearchResults={handleSearchResults}
+        placeholder='Search companies...'
+    >
+            {filteredCompanies.map((company: Company) =>
                 <CompanyCard
                     company_id={company.company_id}
                     key={company.company_id} 
