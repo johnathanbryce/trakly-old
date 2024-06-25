@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 // Interal Components
-import CompanyCardRecentlyAdded from '@/components/Cards/DashboardCards/DashboardHomeCards/CompanyCardRecentlyAdded/CompanyCardRecentlyAdded';
+import CompanyCard from '@/components/Cards/DashboardCards/CompanyCard/CompanyCard';
 import Carousel from '@/components/Carousels/Carousel/Carousel';
 import LoaderSpinner from '@/components/Loaders/LoaderSpinner/LoaderSpinner';
 // Custom Hooks
@@ -38,7 +38,7 @@ export default function DashboardHomeRecentCompanies() {
   return (
         <Carousel>
             {recoilCompanies.data && recoilCompanies.data.map((company: Company) =>
-                <CompanyCardRecentlyAdded
+                <CompanyCard
                     company_id={company.company_id}
                     key={company.company_id} 
                     name={company.name}
@@ -52,6 +52,7 @@ export default function DashboardHomeRecentCompanies() {
                     instagram={company.instagram}
                     facebook={company.facebook}
                     created_at={company.created_at}
+                    notes={company.notes}
                 />
             )}
         </Carousel>

@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 // Interal Components
-import MessageTemplateCard from '@/components/Cards/DashboardCards/DashboardHomeCards/MessageTemplateCard/MessageTemplateCard';
+import MessageTemplateCard from '@/components/Cards/DashboardCards/MessageTemplateCard/MessageTemplateCard';
 import Carousel from '@/components/Carousels/Carousel/Carousel';
 import LoaderSpinner from '@/components/Loaders/LoaderSpinner/LoaderSpinner';
 // Custom Hooks
