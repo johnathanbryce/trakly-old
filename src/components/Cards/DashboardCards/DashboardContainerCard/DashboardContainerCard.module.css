@@ -6,6 +6,8 @@
     width: 95%;
     border-radius: var(--border-radius);
     padding: var(--card-padding);
+
+    
 }
 
 .header_container{
@@ -16,6 +18,12 @@
 
 .header_container p {
     font-size: clamp(0.8rem, 1rem + 1vw, 1.25rem);
+}
+
+.children_grid_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--content-gap);
 }
 
 /* Tablets (landscape) / Small Laptops) */
@@ -31,6 +39,14 @@
         display: none;
     }
 }
+
+/* Mobile Devices (landscape) */
+@media (max-width: 775px) { 
+    .children_grid_container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 
 
 

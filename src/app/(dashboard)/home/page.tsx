@@ -9,15 +9,15 @@ import DashboardHomeTemplates from '@/components/Dashboard/DashboardHome/Dashboa
 export default function Dashboard() {
   return (
     <section className={styles.dashboard_home}>
-        <DashboardContainerCard title='Recently added contacts' subTitle="View all..." subTitleLink='/contacts'>
+        <DashboardContainerCard title='Recently added contacts' subTitle="View all..." subTitleLink='/contacts' isGridContainer={false}>
             <DashboardHomeRecentContacts />
         </DashboardContainerCard>
 
-        <DashboardContainerCard title='Recently added companies' subTitle="View all..." subTitleLink='/companies'>
+        <DashboardContainerCard title='Recently added companies' subTitle="View all..." subTitleLink='/companies' isGridContainer={false}>
             <DashboardHomeRecentCompanies />
         </DashboardContainerCard>
         
-        <DashboardContainerCard title='Message templates' subTitle="View all..." subTitleLink='/templates'>
+        <DashboardContainerCard title='Message templates' subTitle="View all..." subTitleLink='/templates' isGridContainer={false}>
             <DashboardHomeTemplates />
         </DashboardContainerCard>
     </section>

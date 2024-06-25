@@ -6,10 +6,11 @@ interface DashboardCardProps {
     title: string,
     subTitle?: string,
     subTitleLink?: string,
+    isGridContainer?: boolean,
 }
 
 // reusable UI cards for dashboard content
-export default function DashboardContainerCard({children, title, subTitle, subTitleLink}: DashboardCardProps) {
+export default function DashboardContainerCard({children, title, subTitle, subTitleLink, isGridContainer}: DashboardCardProps) {
 
   return (
     <section className={styles.dashboard_container_card}>
@@ -18,7 +19,15 @@ export default function DashboardContainerCard({children, title, subTitle, subTi
         { !subTitleLink && <p>{subTitle}</p> }
         { subTitleLink && <p><Link href={subTitleLink}>{subTitle}</Link></p> }
       </div>
-        {children}
+      {isGridContainer ? (
+        <div className={styles.children_grid_container}>
+          {children}
+        </div>
+      ): (
+        <>
+          {children}
+        </>
+      )}
     </section>
   )
 }

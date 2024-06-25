@@ -20,7 +20,7 @@ import { IconMail, IconBrandLinkedin, IconPhone, IconTrash, IconBrandFacebook, I
 
 
 export default function CompanyCard({
-    company_id, name, email, phone, website, linkedin, github, instagram, facebook, industry, location_city, address, notes, created_at, main_contact
+  company_id, name, email, phone, website, linkedin, github, instagram, facebook, industry, location_city, address, notes, created_at, main_contact
 }: Company) {
     // toggle statuses
     const [toggleDeleteItem, setToggleDeleteItem] = useState(false);
@@ -58,7 +58,7 @@ export default function CompanyCard({
     }
 
   return (
-    <article className={styles.card_recent}>
+    <article className={styles.company_card}>
         <IconTrash className={styles.icon_delete} size={iconSize} onClick={() => setToggleDeleteItem(true)}/>
         {toggleDeleteItem && <DeleteConfirmation itemToDelete={name} onClickDeleteItem={handleDeleteCompany} onClickCloseConfirmation={() => setToggleDeleteItem(false)}/>}
         <div className={styles.card_top_flex_container}>
