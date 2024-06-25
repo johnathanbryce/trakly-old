@@ -1,7 +1,7 @@
 .card_recent {
     display: flex;
     flex-direction: column;
-    gap: var(--content-gap-small);
+    gap: var(--content-gap);
     padding: var(--card-padding-small);
     border-radius: var(--border-radius);
     border: 0.05rem solid var(--font-secondary);
@@ -27,9 +27,15 @@
     opacity: 1; 
 }
 
-.contact, .date_added, .location_details, .industry {
+.contact, .location_details, .industry {
     font-size: clamp(0.75rem, 0.5rem + 1vw, 1.45rem);
 }
+
+.date_added, .notes{
+    font-size: clamp(0.75rem, 0.5rem + 0.75vw, 1.25rem);
+    transition: padding-right var(--hover-transition);
+}
+
 
 .header_container{
     display: flex;
@@ -38,7 +44,7 @@
     transition: padding-right var(--hover-transition);
 }
 
-.card_recent:hover .header_container {
+.card_recent:hover .header_container .date_added {
     padding-right: 2rem;
 }
 
@@ -53,8 +59,8 @@
 
 .card_footer{
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    flex-direction: column;
+    gap: var(--content-gap-small);
     flex: 1;
 }
 
@@ -71,6 +77,19 @@
 
 .icon_contact:hover {
     color: var(--accent-color);
+}
+
+.notes_container{
+    display: flex;
+    align-items: center;
+}
+
+.notes{
+    flex: 1;
+}
+
+.read_more_btn {
+    flex: 0;
 }
 
 /* Mobile Devices (landscape) */

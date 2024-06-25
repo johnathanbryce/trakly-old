@@ -51,6 +51,7 @@ export default function DashboardHomeRecentContacts() {
                 website={contact.website}
                 linkedin={contact.linkedin}
                 created_at={contact.created_at}
+                notes={contact.notes}
             />
         ))}
     </Carousel>

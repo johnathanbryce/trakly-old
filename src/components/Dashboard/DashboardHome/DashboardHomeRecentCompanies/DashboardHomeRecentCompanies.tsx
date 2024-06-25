@@ -52,6 +52,7 @@ export default function DashboardHomeRecentCompanies() {
                     instagram={company.instagram}
                     facebook={company.facebook}
                     created_at={company.created_at}
+                    notes={company.notes}
                 />
             )}
         </Carousel>
