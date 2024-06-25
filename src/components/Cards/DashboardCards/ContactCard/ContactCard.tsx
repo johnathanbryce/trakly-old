@@ -18,7 +18,6 @@ import { useAuth } from '@clerk/clerk-react';
 // External Libraries
 import { IconMail, IconBrandLinkedin, IconPhone, IconTrash, IconWorldWww, IconBrandGithub, IconBrandMeta, IconChevronUp, IconChevronDown  } from '@tabler/icons-react';
 
-
 export default function ContactCard({
     contact_id, first_name, last_name, email, phone, company, position, created_at, github, instagram, website, linkedin, notes
 }: Contact) {
@@ -57,7 +56,7 @@ export default function ContactCard({
     }
     
   return (
-    <article className={styles.card_recent}>
+    <article className={styles.contact_card}>
         <IconTrash className={styles.icon_delete} onClick={() =>setToggleDeleteItem(true)}/>
         {toggleDeleteItem && <DeleteConfirmation itemToDelete={`${first_name} ${last_name ? last_name : ''}`} onClickDeleteItem={handleDeleteContact} onClickCloseConfirmation={() => setToggleDeleteItem(false)}/>}
         <div className={styles.card_top_flex_container}>

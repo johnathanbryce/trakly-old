@@ -1,4 +1,4 @@
-.card_recent {
+.company_card{
     display: flex;
     flex-direction: column;
     gap: var(--content-gap);
@@ -6,6 +6,11 @@
     border-radius: var(--border-radius);
     border: 0.05rem solid var(--font-secondary);
     position: relative;
+    flex: 0 0 40%; /* necessary for carousel */
+    min-width: 0; /* necessary for carousel */
+}
+
+.company_card{
     flex: 0 0 40%; /* necessary for carousel */
     min-width: 0; /* necessary for carousel */
 }
@@ -23,7 +28,7 @@
 }
 
 /* Make the icon visible with a smooth transition on hover */
-.card_recent:hover .icon_delete {
+.company_card:hover .icon_delete {
     opacity: 1; 
 }
 
@@ -105,7 +110,7 @@
 
 /* Mobile Devices (landscape) */
 @media (max-width: 775px) { 
-    .card_recent {
+    .company_card {
         flex: 0 0 80%; /* necessary for carousel */
         gap: var(--content-gap-small);
     }
@@ -113,7 +118,7 @@
 
 /* Mobile Devices up to 480px */
 @media (max-width: 480px) {  
-    .card_recent {
+    .company_card {
         flex: 0 0 80%; /* necessary for carousel */
     }
 }

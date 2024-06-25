@@ -1,7 +1,7 @@
 'use client'
 // Interal Components
 import Carousel from '@/components/Carousels/Carousel/Carousel';
-import ContactCard from '@/components/Cards/DashboardCards/ContactCardRecentlyAdded/ContactCard';
+import ContactCard from '@/components/Cards/DashboardCards/ContactCard/ContactCard';
 import LoaderSpinner from '@/components/Loaders/LoaderSpinner/LoaderSpinner';
 // Custom Hooks
 import { useFetchData } from '@/hooks/useFetchData';
@@ -52,6 +52,7 @@ export default function DashboardHomeRecentContacts() {
                 linkedin={contact.linkedin}
                 created_at={contact.created_at}
                 notes={contact.notes}
+                isCarouselItem={true}
             />
         ))}
     </Carousel>
