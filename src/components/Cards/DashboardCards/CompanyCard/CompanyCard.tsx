@@ -1,5 +1,5 @@
 'use client'
-import styles from './CompanyCardRecentlyAdded.module.css'
+import styles from './CompanyCard.module.css'
 import { useState } from 'react';
 // Next
 import Link from 'next/link';
@@ -19,7 +19,7 @@ import { useAuth } from '@clerk/clerk-react';
 import { IconMail, IconBrandLinkedin, IconPhone, IconTrash, IconBrandFacebook, IconWorldWww, IconBrandGithub, IconBrandInstagram, IconChevronUp, IconChevronDown } from '@tabler/icons-react';
 
 
-export default function CompanyCardRecentlyAdded({
+export default function CompanyCard({
     company_id, name, email, phone, website, linkedin, github, instagram, facebook, industry, location_city, address, notes, created_at, main_contact
 }: Company) {
     // toggle statuses
@@ -62,23 +62,17 @@ export default function CompanyCardRecentlyAdded({
         <IconTrash className={styles.icon_delete} size={iconSize} onClick={() => setToggleDeleteItem(true)}/>
         {toggleDeleteItem && <DeleteConfirmation itemToDelete={name} onClickDeleteItem={handleDeleteCompany} onClickCloseConfirmation={() => setToggleDeleteItem(false)}/>}
         <div className={styles.card_top_flex_container}>
-            <div className={styles.header_container}>
-              <p className={styles.name}>{name}</p>
-              <p className={styles.date_added}><span className={styles.added_text}>Added: </span>{formattedDate}</p>
-            </div>
-
+            <p className={styles.name}>{name}</p>
             <p className={styles.location_details}> {address} {bracket} {location_city}</p>
-            
-            <div className={styles.header_container}>
-              {/* TODO: work on logic to route to contact created in Trakly */}
-              <p className={styles.contact}><Link href={`/companies/${company_id}`}>Contact: {main_contact}</Link></p>
-              <p className={styles.industry}>{industry ?? <br/>}</p>
-            </div>
+            {/* TODO: work on logic to route to contact created in Trakly */}
+            <p className={styles.contact}><Link href={`/companies/${company_id}`}>Contact: {main_contact}</Link></p>
+            <p className={styles.industry}>{industry ?? <br/>}</p>
         </div>
 
         <div className={styles.card_footer}>
+          <div className={styles.card_footer_flex_row_container}>
             <div className={styles.icons_container}>
-                {linkedin && <Link href={linkedin} target="_blank"><IconBrandLinkedin className={styles.icon_contact} size={iconSize}/></Link>}
+            {linkedin && <Link href={linkedin} target="_blank"><IconBrandLinkedin className={styles.icon_contact} size={iconSize}/></Link>}
                 {website &&  <Link href={website} target="_blank"><IconWorldWww className={styles.icon_contact} size={iconSize}/></Link>}
                 {github &&   <Link href={github} target="_blank"><IconBrandGithub className={styles.icon_contact} size={iconSize}/></Link>}
                 {instagram && <Link href={instagram} target="_blank"><IconBrandInstagram className={styles.icon_contact} size={iconSize}/></Link>}
@@ -86,6 +80,8 @@ export default function CompanyCardRecentlyAdded({
                 {phone && <a href={`tel:${phone}`}><IconPhone className={styles.icon_contact} size={iconSize}/></a>}
                 {email && <a href={`mailtol:${email}`} target="_blank"><IconMail className={styles.icon_contact} size={iconSize}/></a>}
             </div>
+            <p className={styles.date_added}><span className={styles.added_text}>Added: </span>{formattedDate}</p>
+          </div>
             <div className={styles.notes_container}>
               <p className={styles.notes}>
                   {notes && notes.length > readMoreTrimLength 

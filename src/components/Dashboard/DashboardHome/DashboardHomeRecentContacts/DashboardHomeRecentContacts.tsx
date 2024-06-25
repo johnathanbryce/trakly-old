@@ -1,7 +1,7 @@
 'use client'
 // Interal Components
 import Carousel from '@/components/Carousels/Carousel/Carousel';
-import ContactCardRecentlyAdded from '@/components/Cards/DashboardCards/DashboardHomeCards/ContactCardRecentlyAdded/ContactCardRecentlyAdded'
+import ContactCard from '@/components/Cards/DashboardCards/ContactCardRecentlyAdded/ContactCard';
 import LoaderSpinner from '@/components/Loaders/LoaderSpinner/LoaderSpinner';
 // Custom Hooks
 import { useFetchData } from '@/hooks/useFetchData';
@@ -37,7 +37,7 @@ export default function DashboardHomeRecentContacts() {
   return (
     <Carousel>
         {recoilContacts.data && recoilContacts.data.map((contact: Contact) => (
-            <ContactCardRecentlyAdded
+            <ContactCard
                 contact_id={contact.contact_id}
                 key={contact.contact_id} 
                 first_name={contact.first_name}

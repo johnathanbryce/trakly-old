@@ -22,17 +22,6 @@
     transition: opacity var(--hover-transition); 
 }
 
-.header_container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: padding-right var(--hover-transition);
-}
-
-.card_recent:hover .header_container {
-    padding-right: 2rem;
-}
-
 /* Make the icon visible with a smooth transition on hover */
 .card_recent:hover .icon_delete {
     opacity: 1; 
@@ -60,6 +49,13 @@
     flex-direction: column;
     gap: var(--content-gap-small);
     flex: 1;
+}
+
+.card_footer_flex_row_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .icons_container {
@@ -100,7 +96,8 @@
         gap: var(--content-gap-small);
     }
 
-    .icon_contact {
+    .icon_contact, 
+    .icon_delete {
         width: 1.5rem;
         height: 1.5rem;
     }
@@ -110,6 +107,7 @@
 @media (max-width: 775px) { 
     .card_recent {
         flex: 0 0 80%; /* necessary for carousel */
+        gap: var(--content-gap-small);
     }
 }
 

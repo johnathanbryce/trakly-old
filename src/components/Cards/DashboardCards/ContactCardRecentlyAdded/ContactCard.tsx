@@ -1,5 +1,5 @@
 'use client'
-import styles from './ContactCardRecentlyAdded.module.css'
+import styles from './ContactCard.module.css'
 import { useState } from 'react';
 // Next
 import Link from 'next/link';
@@ -19,7 +19,7 @@ import { useAuth } from '@clerk/clerk-react';
 import { IconMail, IconBrandLinkedin, IconPhone, IconTrash, IconWorldWww, IconBrandGithub, IconBrandMeta, IconChevronUp, IconChevronDown  } from '@tabler/icons-react';
 
 
-export default function ContactCardRecentlyAdded({
+export default function ContactCard({
     contact_id, first_name, last_name, email, phone, company, position, created_at, github, instagram, website, linkedin, notes
 }: Contact) {
     // toggle statuses
@@ -61,29 +61,26 @@ export default function ContactCardRecentlyAdded({
         <IconTrash className={styles.icon_delete} onClick={() =>setToggleDeleteItem(true)}/>
         {toggleDeleteItem && <DeleteConfirmation itemToDelete={`${first_name} ${last_name ? last_name : ''}`} onClickDeleteItem={handleDeleteContact} onClickCloseConfirmation={() => setToggleDeleteItem(false)}/>}
         <div className={styles.card_top_flex_container}>
-          <div className={styles.header_container}>
-            <p className={styles.name}>{`${first_name} ${last_name ? last_name : ''}`}</p>
-            <p className={styles.date_added}><span className={styles.added_text}>Added: </span>{formattedDate}</p>
-          </div>
-          
-          <div>
-            <p className={styles.position_and_company_text}> {position} {companyPositionBracket} {company}</p>
-          </div>
-          
+          <p className={styles.name}>{`${first_name} ${last_name ? last_name : ''}`}</p>
+          <p className={styles.position_and_company_text}> {position} {companyPositionBracket} {company}</p>
           <p className={styles.contact}> 
               {email} {contactBracket} {phone}
           </p>
         </div>
 
         <div className={styles.card_footer}>
-          <div className={styles.icons_container}>
-              {linkedin && <Link href={linkedin} target="_blank"><IconBrandLinkedin className={styles.icon_contact}/></Link>}
-              {website && <Link href={website} target="_blank"><IconWorldWww className={styles.icon_contact}/></Link>}
-              {github && <Link href={github} target="_blank"><IconBrandGithub className={styles.icon_contact}/></Link>}
-              {instagram && <Link href={instagram} target="_blank"><IconBrandMeta className={styles.icon_contact}/></Link>}
-              {phone && <a href={`tel:${phone}`}><IconPhone className={styles.icon_contact}/></a>}
-              {email && <a href={`mailto:${email}`} target="_blank"><IconMail className={styles.icon_contact}/></a>}
+          <div className={styles.card_footer_flex_row_container}>
+            <div className={styles.icons_container}>
+                {linkedin && <Link href={linkedin} target="_blank"><IconBrandLinkedin className={styles.icon_contact}/></Link>}
+                {website && <Link href={website} target="_blank"><IconWorldWww className={styles.icon_contact}/></Link>}
+                {github && <Link href={github} target="_blank"><IconBrandGithub className={styles.icon_contact}/></Link>}
+                {instagram && <Link href={instagram} target="_blank"><IconBrandMeta className={styles.icon_contact}/></Link>}
+                {phone && <a href={`tel:${phone}`}><IconPhone className={styles.icon_contact}/></a>}
+                {email && <a href={`mailto:${email}`} target="_blank"><IconMail className={styles.icon_contact}/></a>}
+            </div>
+            <p className={styles.date_added}><span className={styles.added_text}>Added: </span>{formattedDate}</p>
           </div>
+        
           <div className={styles.notes_container}>
             <p className={styles.notes}>
                 {notes && notes.length > readMoreTrimLength 
