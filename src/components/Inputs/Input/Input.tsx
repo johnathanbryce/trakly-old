@@ -6,10 +6,10 @@ interface InputFormProps {
     value: string | number | undefined,
     type: string,
     placeholder?: string,
-    onChange: (e: any) => void,
-    onClick?: (e: any) => void,
-    onFocus?: (e: any) => void,
-    onBlur?: (e: any) => void,
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    onClick?: (e: React.MouseEvent<HTMLInputElement>) => void,
+    onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void,
+    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void,
     error?: boolean,
     required?: boolean,
     maxLength?: number;
@@ -24,7 +24,7 @@ export default function Input({name, onClick,placeholder, value, type, onChange,
           value={value}
           maxLength={maxLength}
           name={name}
-          onChange={(event) => onChange(event.target.value)}
+          onChange={onChange}
           onClick={onClick}
           onFocus={onFocus}
           onBlur={onBlur}
