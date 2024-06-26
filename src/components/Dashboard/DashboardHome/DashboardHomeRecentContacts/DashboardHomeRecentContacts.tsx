@@ -1,8 +1,10 @@
 'use client'
+import styles from './DashboardHomeRecentContacts.module.css'
 // Interal Components
 import Carousel from '@/components/Carousels/Carousel/Carousel';
 import ContactCard from '@/components/Cards/DashboardCards/ContactCard/ContactCard';
 import LoaderSpinner from '@/components/Loaders/LoaderSpinner/LoaderSpinner';
+import DashboardContainerCardFullHeight from '@/components/Cards/DashboardCards/DashboardContainerCardFullHeight/DashboardContainerCardFullHeight';
 // Custom Hooks
 import { useFetchData } from '@/hooks/useFetchData';
 // Recoil State
@@ -22,12 +24,12 @@ export default function DashboardHomeRecentContacts() {
     }
     
     if (error) {
-        return <h6>Error fetching contacts data... please try again</h6>;
+        return <p >Error fetching contacts data... please try again</p>;
     }
     
     if (!recoilContacts.data || recoilContacts.data.length === 0) {
         return (
-          <div>
+          <div >
             <p>Hmm, looks like you haven&apos;t added any contacts yet...</p>
             <p>Click here to add a contact</p>
           </div>

@@ -1,5 +1,4 @@
 'use client'
-import styles from './SearchBar.module.css'
 import { useState } from "react";
 // Internal Components
 import Input from "../Inputs/Input/Input";
@@ -24,23 +23,22 @@ export default function SearchBar({ input, searchValues, onSearchResults, placeh
             return;
         }
 
-        if(placeholder === 'Search contacts...'){
-            const results = searchValues.filter(item => {
+        let results = []
+
+        if (placeholder === 'Search contacts...') {
+            results = searchValues.filter(item => {
                 const fullName = `${item.first_name} ${item.last_name}`.toLowerCase();
                 return fullName.includes(value);
             });
-            // update recoil state which in turn filters on Contacts/Companies/Templates pages
-            onSearchResults(results);
-        }
-
-        if(placeholder === 'Search companies...'){
-            const results = searchValues.filter(item => {
+        } else if (placeholder === 'Search companies...') {
+            results = searchValues.filter(item => {
                 const companyName = item.name.toLowerCase();
                 return companyName.includes(value);
             });
-            // update recoil state which in turn filters on Contacts/Companies/Templates pages
-            onSearchResults(results);
         }
+
+        // update recoil state which in turn filters on Contacts/Companies/Templates pages
+        onSearchResults(results);
     };
 
     return (
@@ -53,6 +51,5 @@ export default function SearchBar({ input, searchValues, onSearchResults, placeh
                 onChange={handleSearch}
             />  
         </div>
-   
     );
 }

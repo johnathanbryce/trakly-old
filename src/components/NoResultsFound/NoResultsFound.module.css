@@ -1,0 +1,6 @@
+.no_results_container{
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-gap);
+    height: 100vh;
+}

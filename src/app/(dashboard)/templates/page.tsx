@@ -11,6 +11,7 @@ import { templatesState } from '@/recoil/dataFetchAtoms';
 import { useRecoilValue } from 'recoil';
 // Typesa
 import MessageTemplate from '@/types/messageTemplate';
+import DashboardContainerCardFullHeight from '@/components/Cards/DashboardCards/DashboardContainerCardFullHeight/DashboardContainerCardFullHeight';
 
 export default function Companies() {
     const { data: contacts, error, loading } = useFetchData<MessageTemplate[]>(`http://localhost:8000/api/messages`, templatesState); 
@@ -23,23 +24,23 @@ export default function Companies() {
     
     if (error) {
         return (
-          <DashboardContainerCard title='Message Templates'>
-            <h4>Error fetching message templates data... please try again </h4>
-          </DashboardContainerCard>
+          <DashboardContainerCardFullHeight title='Message Templates' >
+            <p>Error fetching message templates data... please try again </p>
+          </DashboardContainerCardFullHeight>
         )
     }
     
     if (!recoilMessageTemplates.data || recoilMessageTemplates.data.length === 0) {
         return (
-          <DashboardContainerCard title='Message Templates'>
+          <DashboardContainerCardFullHeight title='Message Templates' >
             <p>Hmm, looks like you haven&apos;t added any message templates yet...</p>
             <p>Click here to add a message template</p>
-          </DashboardContainerCard>
+          </DashboardContainerCardFullHeight>
         );
       }
 
   return (
-    <DashboardContainerCard title='Message Templates' isGridContainer={true}>
+    <DashboardContainerCard title='Message Templates' isGridContainer={true} >
       {recoilMessageTemplates.data && recoilMessageTemplates.data.map((template: MessageTemplate) =>
           <MessageTemplateCard
               template_id={template.template_id}

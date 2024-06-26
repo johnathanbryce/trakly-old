@@ -13,11 +13,6 @@
     box-shadow: var(--box-shadow);
 }
 
-.company_card{
-    flex: 0 0 40%; /* necessary for carousel */
-    min-width: 0; /* necessary for carousel */
-}
-
 .icon_delete {
     cursor: pointer;
     position: absolute;

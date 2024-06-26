@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: var(--content-gap-small);
     width: 100%;
     height: 100%;
-    padding-top: var(--card-padding-small);
-    background-color: var(--background-secondary);
+    background-color: var(--background-tertiary);
     position: absolute;
     top: 0;
     left: 0;

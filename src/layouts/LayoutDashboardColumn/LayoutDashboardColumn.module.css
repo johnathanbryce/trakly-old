@@ -7,13 +7,5 @@
 @media (max-width: 1200px) { 
     .layout_dashboard_column {
         width: 100%;
-        padding: var(--layout-padding);
-    }
-}
-
-/* Mobile Devices (landscape) */
-@media (max-width: 775px) { 
-    .layout_dashboard_column { 
-        padding: var(--layout-padding-mobile);
     }
 }
