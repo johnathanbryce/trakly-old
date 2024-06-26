@@ -22,7 +22,7 @@ export default function MessageTemplateCard({title, message, target_audience, cr
     const formattedDateUpdatedAt = updated_at ? formatDate(updated_at.toString()) : ''
 
   return (
-    <article className={styles.card_recent}>
+    <article className={styles.card_message_templates}>
         <p className={styles.name}>{title}</p>
         <p>{target_audience}</p>
         <div className={styles.message_container}>

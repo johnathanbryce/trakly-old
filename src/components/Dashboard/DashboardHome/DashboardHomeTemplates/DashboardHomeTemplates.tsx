@@ -23,7 +23,7 @@ export default function DashboardHomeTemplates() {
     }
     
     if (error) {
-        return <h4>Error fetching message templates data... please try again</h4>;
+        return <h6>Error fetching message templates data... please try again</h6>;
     }
     
     if (!recoilMessageTemplates.data || recoilMessageTemplates.data.length === 0) {

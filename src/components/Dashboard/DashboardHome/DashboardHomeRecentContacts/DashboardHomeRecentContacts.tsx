@@ -22,7 +22,7 @@ export default function DashboardHomeRecentContacts() {
     }
     
     if (error) {
-        return <h1>Error fetching contacts data... please try again</h1>;
+        return <h6>Error fetching contacts data... please try again</h6>;
     }
     
     if (!recoilContacts.data || recoilContacts.data.length === 0) {
@@ -52,7 +52,6 @@ export default function DashboardHomeRecentContacts() {
                 linkedin={contact.linkedin}
                 created_at={contact.created_at}
                 notes={contact.notes}
-                isCarouselItem={true}
             />
         ))}
     </Carousel>

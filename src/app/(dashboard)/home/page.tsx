@@ -1,5 +1,4 @@
 
-import styles from './home.module.css'
 // Internal Components
 import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardContainerCard/DashboardContainerCard';
 import DashboardHomeRecentContacts from '@/components/Dashboard/DashboardHome/DashboardHomeRecentContacts/DashboardHomeRecentContacts';
@@ -8,7 +7,7 @@ import DashboardHomeTemplates from '@/components/Dashboard/DashboardHome/Dashboa
 
 export default function Dashboard() {
   return (
-    <section className={styles.dashboard_home}>
+    <>
         <DashboardContainerCard title='Recently added contacts' subTitle="View all..." subTitleLink='/contacts' isGridContainer={false}>
             <DashboardHomeRecentContacts />
         </DashboardContainerCard>
@@ -20,6 +19,7 @@ export default function Dashboard() {
         <DashboardContainerCard title='Message templates' subTitle="View all..." subTitleLink='/templates' isGridContainer={false}>
             <DashboardHomeTemplates />
         </DashboardContainerCard>
-    </section>
+    </>
+  
   )
 }

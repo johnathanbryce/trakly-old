@@ -1,5 +1,0 @@
-.dashboard_home{
-    display: flex;
-    flex-direction: column;
-    gap: var(--content-gap);
-}

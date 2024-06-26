@@ -1,6 +1,5 @@
 'use client'
 import  {useState, useEffect} from 'react';
-import styles from './contacts.module.css'
 // Interal Components
 import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardContainerCard/DashboardContainerCard'
 import CompanyCard from '@/components/Cards/DashboardCards/CompanyCard/CompanyCard';
@@ -52,7 +51,7 @@ export default function Companies() {
 
   return (
     <DashboardContainerCard 
-        title='Contacts' 
+        title='Companies' 
         isGridContainer={true} 
         isSearchBar={true} 
         searchValues={recoilCompanies.data} 
