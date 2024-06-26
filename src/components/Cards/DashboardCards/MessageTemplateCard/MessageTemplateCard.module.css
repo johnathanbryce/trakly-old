@@ -1,13 +1,16 @@
-.card_recent{
+.card_message_templates{
     display: flex;
     flex-direction: column;
     gap: var(--content-gap);
-    padding: var(--card-padding-small);
+    padding: var(--card-padding);
     border-radius: var(--border-radius);
-    border: 0.05rem solid var(--font-secondary);
+    background-color: var(--background-tertiary);
     position: relative;
     flex: 0 0 60%; /* necessary for carousel */
     min-width: 0; /* necessary for carousel */
+    backdrop-filter: var(--backdrop-filter); 
+    -webkit-backdrop-filter: var(--backdrop-filter); 
+    box-shadow: var(--box-shadow);
 }
 
 .icon_delete {
@@ -23,7 +26,7 @@
 }
 
 /* Make the icon visible with a smooth transition on hover */
-.card_recent:hover .icon_delete {
+.card_message_templates:hover .icon_delete {
     opacity: 1; 
 }
 
@@ -75,8 +78,9 @@
 
 /* Mobile Devices (landscape) */
 @media (max-width: 775px) {
-    .card_recent {
+    .card_message_templates {
         flex: 0 0 80%; /* necessary for carousel */
+        padding: var(--card-padding-small);
     } 
 
     .card_footer {
@@ -94,7 +98,7 @@
 
 /* Mobile Devices up to 480px */
 @media (max-width: 480px) {  
-    .card_recent {
+    .card_message_templates {
         flex: 0 0 80%; /* necessary for carousel */
     }
 }

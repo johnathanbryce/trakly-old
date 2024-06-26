@@ -7,9 +7,10 @@
 
     /* backgrounds */
     --background-primary: #121212;
-    --background-secondary: #1F1F1F;
+    --background-secondary: rgba(31, 31, 31, 0.8);
     --background-tertiary: #2B2B2B;
     --card-bg-primary: #1F1F1F;
+
 
     /* fonts */
     --font-primary: #F1F1F1;
@@ -38,7 +39,10 @@
     --success-color: #37D067;
     
     /* box-shadow */
-    --box-shadow:0 2px 4px rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+    /*backdrop filter*/
+    --backdrop-filter: blur(1rem);
 
     /* gaps */
     --content-gap: 1.75rem;

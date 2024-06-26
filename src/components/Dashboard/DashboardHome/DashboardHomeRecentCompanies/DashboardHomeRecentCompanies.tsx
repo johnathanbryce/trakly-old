@@ -23,7 +23,7 @@ export default function DashboardHomeRecentCompanies() {
     }
     
     if (error) {
-        return <h4>Error fetching companies data... please try again</h4>;
+        return <h6>Error fetching companies data... please try again</h6>;
     }
     
     if (!recoilCompanies.data || recoilCompanies.data.length === 0) {

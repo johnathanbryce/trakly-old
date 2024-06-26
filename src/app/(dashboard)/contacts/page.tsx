@@ -1,5 +1,4 @@
 'use client'
-import styles from './contacts.module.css'
 // Interal Components
 import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardContainerCard/DashboardContainerCard'
 import ContactCard from '@/components/Cards/DashboardCards/ContactCard/ContactCard';
