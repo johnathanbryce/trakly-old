@@ -9,7 +9,6 @@
     -webkit-backdrop-filter: var(--backdrop-filter); 
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    border: 0.1rem solid rgba(255, 255, 255, 0.1);
 }
 
 .header_container{
@@ -31,7 +30,7 @@
 /* Tablets (landscape) / Small Laptops) */
 @media (max-width: 1200px) { 
     .dashboard_container_card {
-       /*  width: 100%; */
+       padding: var(--layout-padding-mobile);
     }
 }
 

@@ -6,8 +6,7 @@
     height: inherit;
     width: 14.5rem;
     padding: var(--layout-padding);
-
-    
+    background-color: var(--background-tertiary);
     backdrop-filter: var(--backdrop-filter); 
     -webkit-backdrop-filter: var(--backdrop-filter); 
     box-shadow: var(--box-shadow);

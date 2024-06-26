@@ -4,13 +4,12 @@
     align-items: center;
     padding: var(--layout-padding);
     height: 7.5rem; 
-    /* background-color: var(--background-primary); */
-    border-radius: var(--border-radius);
-
+    /* border-radius: var(--border-radius); */
     background-color: var(--background-tertiary);
     backdrop-filter: var(--backdrop-filter); 
     -webkit-backdrop-filter: var(--backdrop-filter); 
     box-shadow: var(--box-shadow);
+    z-index: 10;
 }
 
 /* Mobile Devices (landscape) */

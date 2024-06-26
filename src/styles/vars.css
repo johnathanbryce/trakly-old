@@ -1,70 +1,57 @@
+/* Dark mode */
 :root {
-    /* primary colors / default / misc */
-    --accent-color: #1E90FF;
-    --accent-color-light: #6EB8FF;
-    --accent-color-extra-light: #E0F2FF;
-    --default-color: #F1F1F1;
+    --accent-color: #4A90E2;
+    --accent-color-light: #333;
+    --accent-color-extra-light: #444;
+    --default-color: #e0e0e0;
 
-    /* backgrounds */
     --background-primary: #121212;
-    --background-secondary: rgba(31, 31, 31, 0.8);
-    --background-tertiary: #2B2B2B;
-    --card-bg-primary: #1F1F1F;
+    --background-secondary: #1e1e1e;
+    --background-tertiary: #2a2a2a;
+    --card-bg-primary: #1e1e1e;
 
+    --font-primary: #e0e0e0;
+    --font-secondary: #a0a0a0;
+    --font-secondary-light: rgba(160, 160, 160, 0.7);
+    --font-headers: #ffffff;
 
-    /* fonts */
-    --font-primary: #F1F1F1;
-    --font-secondary: #B3B3B3;
-    --font-secondary-light: rgba(179, 179, 179, 0.5);
-    --font-headers: '';
-
-    /* buttons */
-    --button-bg: var(--accent-color-extra-light);
-    --button-primary-text: #121212;
-    --button-secondary-text: #1E90FF;
-    --button-hover-bg: #1A76C2;
-    --button-hover-bg-secondary: #3A3A3A;
-    --button-hover-text: #F1F1F1;
+    --button-bg: var(--accent-color-light);
+    --button-primary-text: #e0e0e0;
+    --button-secondary-text: #4A90E2;
+    --button-hover-bg: #3a3a3a;
+    --button-hover-bg-secondary: #5a5a5a;
+    --button-hover-text: #ffffff;
     --button-padding: 0.75rem 1.5rem;
 
-    /* borders */
     --border-radius: 0.375rem;
-    --border-color: #2B2B2B;
+    --border-color: #444;
 
-    /* icons */
-    --icon-color: var(--default-color); 
+    --icon-color: var(--default-color);
 
-    /* warning/success */
-    --warning-color: #FF073A;
-    --success-color: #37D067;
-    
-    /* box-shadow */
+    --warning-color: #FF5252;
+    --success-color: #4CAF50;
+
     --box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
 
-    /*backdrop filter*/
     --backdrop-filter: blur(1rem);
 
-    /* gaps */
     --content-gap: 1.75rem;
     --content-gap-small: 0.75rem;
     --content-gap-large: 4rem;
 
-    /* padding */
-    --layout-padding: 0 5rem;
-    --layout-padding-mobile: 0 2rem;
+    --layout-padding: 4rem 5rem;
+    --layout-padding-mobile: 2rem 2rem;
     --card-padding: 2rem;
     --card-padding-small: 1rem;
 
-    /* inputs */
-    --input-bg:	'';
-    --input-text: '';
+    --input-bg: var(--background-primary);
+    --input-text: var(--font-primary);
     --input-padding: 1rem;
     --input-focus-transition: 0.2s ease-in-out;
-    
-    /* hover */
-    --hover-transition: 0.3s ease-in-out;
 
+    --hover-transition: 0.3s ease-in-out;
 }
+
 
 /* Light mode ? */
 :root {
@@ -74,7 +61,6 @@
     --default-color: #272735;
 
     --background-primary: #f4f5f9;
-    --background-primary: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(242, 243, 245, 0.6) 25%, rgba(235, 238, 243, 0.6) 75%, rgba(255, 255, 255, 0.6) 100%);
     --background-secondary: rgba(112, 115, 147, 0.02);
     --background-tertiary: #ededf3;
     --card-bg-primary: rgba(112, 115, 147, 0.1);
@@ -109,7 +95,7 @@
     --content-gap-large: 4rem;
 
     --layout-padding: 4rem 5rem;
-    --layout-padding-mobile: 0 2rem;
+    --layout-padding-mobile: 2rem 2rem;
     --card-padding: 2rem;
     --card-padding-small: 1rem;
 

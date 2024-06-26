@@ -33,7 +33,7 @@ export default function CompanyCard({
 
     const bracket = address && location_city ? '|' : '';
     const iconSize = 20;
-    const readMoreTrimLength = 55;
+    const readMoreTrimLength = 72;
 
     const formattedDate = formatDate(created_at.toString())
 

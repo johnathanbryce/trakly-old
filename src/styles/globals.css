@@ -41,6 +41,7 @@ body {
     -moz-osx-font-smoothing: grayscale; 
     overflow-x: hidden; 
     letter-spacing: 0.08rem;
+    background-color: var(--background-primary);
 }
 
 /* Tablets (landscape) / Small Laptops) */
