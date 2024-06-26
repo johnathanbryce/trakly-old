@@ -4,11 +4,13 @@
     gap: var(--content-gap);
     border-radius: var(--border-radius);
     padding: var(--layout-padding);
-    background: var(--background-secondary);
+    background-color: var(--background-primary);
+    /* background: var(--background-secondary); */
     backdrop-filter: var(--backdrop-filter); 
     -webkit-backdrop-filter: var(--backdrop-filter); 
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+/*     box-shadow: var(--box-shadow); */
+
 }
 
 .header_container{

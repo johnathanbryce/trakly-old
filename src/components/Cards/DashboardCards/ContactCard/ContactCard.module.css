@@ -4,14 +4,16 @@
     gap: var(--content-gap);
     padding: var(--card-padding);
     border-radius: var(--border-radius);
-    background-color: var(--background-tertiary);
+    background-color: var(--card-bg-primary);
     position: relative;
     flex: 0 0 40%; /* necessary for carousel */
     min-width: 0; /* necessary for carousel */
 
-    backdrop-filter: var(--backdrop-filter); 
-    -webkit-backdrop-filter: var(--backdrop-filter); 
+/*     backdrop-filter: var(--backdrop-filter); 
+    -webkit-backdrop-filter: var(--backdrop-filter);  */
     box-shadow: var(--box-shadow);
+
+
 }
 
 .icon_delete {
@@ -21,7 +23,7 @@
     top: 0.5rem;
     opacity: 0; 
     color: var(--warning-color);
-    background-color: var(--background-tertiary);
+    background-color: var(--card-bg-primary);
     z-index: 2;
     transition: opacity var(--hover-transition); 
 }

@@ -4,7 +4,7 @@
     gap: var(--content-gap);
     padding: var(--card-padding);
     border-radius: var(--border-radius);
-    background-color: var(--background-tertiary);
+    background-color: var(--card-bg-primary);
     position: relative;
     flex: 0 0 60%; /* necessary for carousel */
     min-width: 0; /* necessary for carousel */
@@ -16,12 +16,12 @@
 .icon_delete {
     cursor: pointer;
     position: absolute;
-    right: -0.75rem;
-    top: -0.25rem;
+    right: 0.5rem;
+    top: 0.5rem;
     opacity: 0; 
     color: var(--warning-color);
-    background-color: var(--background-secondary);
-    z-index: 10;
+    background-color: var(--card-bg-primary);
+    z-index: 2;
     transition: opacity var(--hover-transition); 
 }
 
