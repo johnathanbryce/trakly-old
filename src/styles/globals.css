@@ -50,13 +50,38 @@ body {
     padding-bottom: 10rem; /* accounts for our navbar height on the bottom screen on smaller screens/mobile*/
   }
 }
+
+[data-theme="dark"]{
+  --accent-color: #5266eb;
+  --accent-color-light: #3A3A3A;
+  --accent-color-extra-light: #2A2A2A;
+  --default-color: #f4f5f9;
+
+  --background-primary: #1e1e1e;
+  --background-secondary: rgba(255, 255, 255, 0.02);
+  --card-bg-primary: #2a2a2a;
+
+  --font-primary: #f4f5f9;
+  --font-secondary: #cccccc;
+  --font-secondary-light: rgba(255, 255, 255, 0.5);
+  --font-headers: '#f4f5f9';
+
+  --button-bg: var(--accent-color-light);
+  --button-primary-text: #f4f5f9;
+  --button-secondary-text: #5266eb;
+  --button-hover-bg: #4354c8;
+  --button-hover-bg-secondary: #1e1e1e;
+  --button-hover-text: #FFFFFF;
+  --border-color: #535461;
+  
+  --icon-color: var(--default-color);
+
+  --warning-color: #d03275;
+  --success-color: #37D067;
+}
  
 main {
     display: block; /* Render the main element consistently in IE */
-    background-color: var(--background-tertiary);
-    backdrop-filter: var(--backdrop-filter); 
-    -webkit-backdrop-filter: var(--backdrop-filter); 
-    box-shadow: var(--box-shadow);
     height: 100%;
 }
 
