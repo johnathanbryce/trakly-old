@@ -31,7 +31,7 @@ export default function ContactCard({
 
     const contactBracket = email && phone ? '|' : '';
     const companyPositionBracket = position && company ? '-' : ''
-    const readMoreTrimLength = 55;
+    const readMoreTrimLength = 72;
 
     const formattedDate = formatDate(created_at.toString())
 

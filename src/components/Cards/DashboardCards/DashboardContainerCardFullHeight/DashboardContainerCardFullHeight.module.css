@@ -9,7 +9,6 @@
     -webkit-backdrop-filter: var(--backdrop-filter); 
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    border: 0.1rem solid rgba(255, 255, 255, 0.1);
     height: 100vh;
 }
 
@@ -21,5 +20,28 @@
 
 .header_container p {
     font-size: clamp(0.8rem, 1rem + 1vw, 1.25rem);
+}
+
+/* Tablets (landscape) / Small Laptops) */
+@media (max-width: 1200px) { 
+    .dashboard_container_card {
+       padding: var(--layout-padding-mobile);
+    }
+}
+
+/* Tablets (portrait) */
+@media (max-width: 950px) { 
+    .header_container p {
+        display: none;
+    }
+}
+
+/* Mobile Devices (landscape) */
+@media (max-width: 775px) { 
+    .header_container{
+        flex-direction: column;
+        gap: var(--content-gap);
+        align-items: flex-start;
+    }
 }
 
