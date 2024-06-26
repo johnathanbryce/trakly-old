@@ -1,8 +1,10 @@
 'use client'
 // Interal Components
 import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardContainerCard/DashboardContainerCard'
+import DashboardContainerCardFullHeight from '@/components/Cards/DashboardCards/DashboardContainerCardFullHeight/DashboardContainerCardFullHeight';
 import ContactCard from '@/components/Cards/DashboardCards/ContactCard/ContactCard';
 import LoaderSpinner from '@/components/Loaders/LoaderSpinner/LoaderSpinner';
+import NoResultsFound from '@/components/NoResultsFound/NoResultsFound';
 // Custom Hooks
 import { useFetchData } from '@/hooks/useFetchData';
 // Recoil State
@@ -33,18 +35,18 @@ export default function Contacts() {
     
     if (error) {
         return (
-          <DashboardContainerCard title='Contacts'>
-            <h4>Error fetching contacts data... please try again </h4>
-          </DashboardContainerCard>
+          <DashboardContainerCardFullHeight title='Contacts' >
+            <p>Error fetching contacts data... please try again </p>
+          </DashboardContainerCardFullHeight>
         )
     }
     
     if (!recoilContacts.data || recoilContacts.data.length === 0) {
         return (
-          <DashboardContainerCard title='Contacts'>
+          <DashboardContainerCardFullHeight title='Contacts' >
             <p>Hmm, looks like you haven&apos;t added any contacts yet...</p>
             <p>Click here to add a contact</p>
-          </DashboardContainerCard>
+          </DashboardContainerCardFullHeight>
         );
     }
 
@@ -75,6 +77,7 @@ export default function Contacts() {
                     notes={contact.notes}
                 />
             ))}
+            {filteredContacts.length === 0 && <NoResultsFound searchParams='contact name' /> }
         </DashboardContainerCard>
     )
 }

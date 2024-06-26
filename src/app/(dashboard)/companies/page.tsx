@@ -4,6 +4,7 @@ import  {useState, useEffect} from 'react';
 import DashboardContainerCard from '@/components/Cards/DashboardCards/DashboardContainerCard/DashboardContainerCard'
 import CompanyCard from '@/components/Cards/DashboardCards/CompanyCard/CompanyCard';
 import LoaderSpinner from '@/components/Loaders/LoaderSpinner/LoaderSpinner';
+import NoResultsFound from '@/components/NoResultsFound/NoResultsFound';
 // Custom Hooks
 import { useFetchData } from '@/hooks/useFetchData';
 // Recoil State
@@ -11,6 +12,8 @@ import { companiesState } from '@/recoil/dataFetchAtoms';
 import { useRecoilValue } from 'recoil';
 // Typesa
 import Company from '@/types/company';
+import DashboardContainerCardFullHeight from '@/components/Cards/DashboardCards/DashboardContainerCardFullHeight/DashboardContainerCardFullHeight';
+
 
 export default function Companies() {
     const { data: contacts, error, loading } = useFetchData<Company[]>(`http://localhost:8000/api/companies`, companiesState); 
@@ -34,18 +37,18 @@ export default function Companies() {
     
     if (error) {
         return (
-          <DashboardContainerCard title='Contacts'>
-            <h4>Error fetching companies data... please try again </h4>
-          </DashboardContainerCard>
+          <DashboardContainerCardFullHeight title='Contacts'>
+            <p>Error fetching companies data... please try again </p>
+          </DashboardContainerCardFullHeight>
         )
     }
     
     if (!recoilCompanies.data || recoilCompanies.data.length === 0) {
         return (
-          <DashboardContainerCard title='Contacts'>
+          <DashboardContainerCardFullHeight title='Contacts'>
             <p>Hmm, looks like you haven&apos;t added any companies yet...</p>
             <p>Click here to add a contact</p>
-          </DashboardContainerCard>
+          </DashboardContainerCardFullHeight>
         );
       }
 
@@ -76,6 +79,7 @@ export default function Companies() {
                     notes={company.notes}
                 />
             )}
+            {filteredCompanies.length === 0 && <NoResultsFound searchParams='company name' /> }
     </DashboardContainerCard>
   )
 }
