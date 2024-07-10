@@ -6,6 +6,8 @@ import { useRecoilState } from "recoil";
 import FetchResult from "@/types/dataFetchResult";
 // Clerk Auth
 import { useAuth } from '@clerk/clerk-react';
+// Utils
+import { fetchDataFromServer } from "@/utils/dataFetchService";
 
 /* fetches data and stores the fetched data into recoil state for either Contacts, Companies, or Templates
     - REMEMBER: recoilState parameter determines which recoil atom state this fetched data will be stored in
@@ -35,19 +37,7 @@ export const useFetchData = <T,>(apiRoute: string, recoilState: any,): FetchResu
         throw new Error('Token is not defined');
       }
 
-      // ensures that user's id and token can be leveraged in express middleware for authorized SQL queries for CRUD operations
-      const headers: HeadersInit = {
-        'Authorization': `Bearer ${token}`,
-        'X-User-ID': userId,
-      };
-
-      const response = await fetch(apiRoute, { headers });
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      
-      const result: T = await response.json();
+      const result: T = await fetchDataFromServer(apiRoute, userId, token)
       setFetchState({ data: result, error: null, loading: false });
 
     } catch (error: any) {

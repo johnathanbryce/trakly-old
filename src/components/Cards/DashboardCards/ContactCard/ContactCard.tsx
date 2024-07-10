@@ -54,11 +54,15 @@ export default function ContactCard({
         console.error('Failed to delete contact:', error);
       }
     }
-    
+
+    // handlers to avoid fn re-creation each render (previously had it inline as {() => toggleReadMore} which recreates it each time)
+    const toggleDeleteConfirmation = () => setToggleDeleteItem(!toggleDeleteItem);
+    const toggleReadMore = () => setIsReadMoreExpanded(!isReadMoreExpanded);
+
   return (
     <article className={styles.contact_card}>
-        <IconTrash className={styles.icon_delete} onClick={() =>setToggleDeleteItem(true)}/>
-        {toggleDeleteItem && <DeleteConfirmation itemToDelete={`${first_name} ${last_name ? last_name : ''}`} onClickDeleteItem={handleDeleteContact} onClickCloseConfirmation={() => setToggleDeleteItem(false)}/>}
+        <IconTrash className={styles.icon_delete} onClick={toggleDeleteConfirmation}/>
+        {toggleDeleteItem && <DeleteConfirmation itemToDelete={`${first_name} ${last_name ? last_name : ''}`} onClickDeleteItem={handleDeleteContact} onClickCloseConfirmation={toggleDeleteConfirmation}/>}
         <div className={styles.card_top_flex_container}>
           <p className={styles.name}>{`${first_name} ${last_name ? last_name : ''}`}</p>
           <p className={styles.position_and_company_text}> {position} {companyPositionBracket} {company}</p>
@@ -90,7 +94,7 @@ export default function ContactCard({
                 }
             </p>
             {notes && notes.length > readMoreTrimLength && (
-                <button className={styles.read_more_btn} onClick={() => setIsReadMoreExpanded(!isReadMoreExpanded)}>
+                <button className={styles.read_more_btn} onClick={toggleReadMore}>
                     {isReadMoreExpanded ? <IconChevronUp className={styles.icon_contact} /> : <IconChevronDown className={styles.icon_contact}/>}
                 </button>
             )}
